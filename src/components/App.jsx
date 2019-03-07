@@ -5,7 +5,6 @@ const App = (props) => {
   return(
     <div>
       {children}
-      App
     </div>
   )
 }
