@@ -1,8 +1,10 @@
 import React from 'react'
 
-const App = () => {
+const App = (props) => {
+  const { children } = props
   return(
     <div>
+      {children}
       App
     </div>
   )
