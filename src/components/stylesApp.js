@@ -4,10 +4,11 @@ const styles = ({
     width: '100%',
     display: 'grid',
     gridTemplateAreas: `
-    'head    head    head'
-    'main    main   main'
-    'foot    foot    foot' `,
+    'head    main    main'
+    'head    main    main'
+    'head    main    main' `,
     gridAutoRows: '3rem auto 3rem',
+    gridAutoColumns: '6rem auto auto'
   }
 })
 export default styles

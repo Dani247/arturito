@@ -1,11 +1,11 @@
 export default {
   colors: {
-    primary:{
-      backgroundColor: 'lightblue',
+    primary: {
+      backgroundColor: '#306998',
       color: 'black'
     },
-    secundary:{
-      backgroundColor: 'silver',
+    secondary: {
+      backgroundColor: '#4B8BBE',
       color: 'black'
     }
   }
