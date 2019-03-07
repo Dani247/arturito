@@ -1,12 +1,15 @@
 import React from 'react'
+// styles
+import injectSheet from 'react-jss'
+import styles from './stylesApp.js'
 
 const App = (props) => {
-  const { children } = props
+  const { children, classes } = props
   return(
-    <div>
+    <div className={classes.appContainer}>
       {children}
     </div>
   )
 }
-
-export default App
+const appWithStyles = injectSheet(styles)(App)
+export default appWithStyles
