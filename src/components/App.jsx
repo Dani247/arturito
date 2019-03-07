@@ -7,7 +7,7 @@ const App = (props) => {
   const { children, classes } = props
   return(
     <div className={classes.appContainer}>
-      {children}
+      { children }
     </div>
   )
 }
