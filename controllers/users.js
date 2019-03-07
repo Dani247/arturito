@@ -10,6 +10,16 @@ const getUserById = id => {
   return UserModel.findById(id)
 }
 
+// * returns user by email
+const getUserByEmail = email => {
+  return UserModel.findOne({ email })
+}
+
+// * returns user by document
+const getOneUser = body => {
+  return UserModel.findOne({ ...body })
+}
+
 // * post new user
 const addUser = body => {
   const NewUser = new UserModel(body)
@@ -29,6 +39,8 @@ const updateUser = (id, body) => {
 module.exports = {
   getUsers,
   getUserById,
+  getUserByEmail,
+  getOneUser,
   addUser,
   removeUser,
   updateUser

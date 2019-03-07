@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 // * config files
@@ -12,12 +11,15 @@ const app = express()
 
 // * middlewares
 app.use(cors())
-app.use(bodyParser())
+app.use(express.json())
 
 // * -routes-
 // * users
 const userRoutes = require('./routes/api/users')
 app.use('/api/v1/users', userRoutes)
+// * auth
+const authRoutes = require('./routes/api/auth')
+app.use('/api/v1/auth', authRoutes)
 
 // * connect to mongo
 mongoose.connect(db.mongoUri, (err) => {
