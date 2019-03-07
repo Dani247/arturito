@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from '@reach/router'
 const Header = () => {
   return(
-    <div>
+    <header>
       <Link to='/'>Home</Link>
       <Link to='login'>Login</Link>
-    </div>
+    </header>
   )
 }
 
