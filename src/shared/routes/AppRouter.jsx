@@ -16,18 +16,18 @@ const Home = React.lazy(() => import("../../components/Home/"));
 const AppRouter = () => {
   return (
     <Provider store={store({authed: false})}>
-    <ThemeProvider theme={theme}>
-      <App>
-        <Header />
-        <Suspense fallback={<div>...Loading</div>}>
-          <Router className="routerContainer" primary={false}>
-            <Home path="/" />
-            <Login path="login" />
-          </Router>
-        </Suspense>
-      </App>
-    </ThemeProvider>
-    // </Provider>
+      <ThemeProvider theme={theme}>
+        <App>
+          <Header />
+          <Suspense fallback={<div>...Loading</div>}>
+            <Router className="routerContainer" primary={false}>
+              <Home path="/" />
+              <Login path="login" />
+            </Router>
+          </Suspense>
+        </App>
+      </ThemeProvider>
+    </Provider>
   );
 };
 
