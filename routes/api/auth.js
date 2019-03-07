@@ -7,7 +7,7 @@ const vars = require('../../config/vars')
 // * users controller
 const Users = require('../../controllers/users')
 
-// * login
+// * PUBLIC login
 router.post('/', async (req, res) => {
   let newUser = req.body
 

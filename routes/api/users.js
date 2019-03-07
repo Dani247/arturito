@@ -4,23 +4,26 @@ const bycrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const vars = require('../../config/vars')
 
+// * auth middleware
+const auth = require('../../middleware/auth')
+
 // * users controller
 const Users = require('../../controllers/users')
 
-// * gets all users
-router.get('/', async (req, res) => {
+// * PRIVATE gets all users
+router.get('/', auth, async (req, res) => {
   const result = await Users.getUsers()
   res.status(200).json(result)
 })
 
-// * gets user by id
-router.get('/:id', async (req, res) => {
+// * PRIVATE gets user by id
+router.get('/:id', auth, async (req, res) => {
   const { id } = req.params
   const result = await Users.getUserById(id)
   res.status(200).json(result)
 })
 
-// * post a new user
+// * PUBLIC post a new user
 router.post('/', async (req, res) => {
   let newUser = req.body
   const { name, password, email, phone } = newUser
@@ -63,15 +66,15 @@ router.post('/', async (req, res) => {
   }
 })
 
-// * deletes user
-router.delete('/:id', async (req, res) => {
+// * PRIVATE deletes user
+router.delete('/:id', auth, async (req, res) => {
   const { id } = req.params
   const result = await Users.removeUser(id)
   res.status(200).json(result)
 })
 
-// * modifies user
-router.put('/:id', async (req, res) => {
+// * PRIVATE modifies user
+router.put('/:id', auth, async (req, res) => {
   const { id } = req.params
   const result = await Users.updateUser(id, req.body)
   res.status(200).json(result)

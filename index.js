@@ -2,6 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
+// * dotEnv
+require('dotenv').config()
+
 // * config files
 const db = require('./config/db')
 const vars = require('./config/vars')
