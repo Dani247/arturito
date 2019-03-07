@@ -7,6 +7,7 @@ import { Router } from "@reach/router";
 // Components
 import App from "../../components/App";
 import Header from "../components/Header";
+import Footer from '../components/Footer'
 // Styles
 import { ThemeProvider } from "react-jss";
 import theme from "../themes/v1";
@@ -25,6 +26,7 @@ const AppRouter = () => {
               <Login path="login" />
             </Router>
           </Suspense>
+          <Footer/>
         </App>
       </ThemeProvider>
     </Provider>

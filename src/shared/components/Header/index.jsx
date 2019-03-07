@@ -1,12 +1,17 @@
 import React from 'react'
+// Routes
 import { Link } from '@reach/router'
-const Header = () => {
+// Styles
+import injectSheet from 'react-jss'
+import styles from './styesHeader'
+
+const Header = ({classes}) => {
   return(
-    <header>
+    <header className={classes.headerContainer}>
       <Link to='/'>Home</Link>
       <Link to='login'>Login</Link>
     </header>
   )
 }
-
-export default Header
+const headertWithStyles =  injectSheet(styles)(Header)
+export default headertWithStyles
