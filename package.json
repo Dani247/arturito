@@ -1,0 +1,21 @@
+{
+  "name": "r2d2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dani247/arturito",
+  "author": "Daniel Diaz <danie.infante@itexico.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
