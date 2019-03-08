@@ -1,6 +1,10 @@
 const styles = theme => ({
   headerContainer: {
-    width: '100%',
+    position: 'absolute'
+  }
+})
+
+/*  width: '100%',
     gridArea: 'head',
     backgroundColor: theme.colors.primary.backgroundColor,
     display: 'flex',
@@ -13,8 +17,6 @@ const styles = theme => ({
       '&:hover': {
         backgroundColor: theme.colors.secondary.backgroundColor
       }
-    }
-  }
-})
+    }*/
 
 export default styles
