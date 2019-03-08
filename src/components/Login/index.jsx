@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import styles from './stylesLogin'
+import { Link } from '@reach/router'
 // * hooks
 import useInput from '../../shared/hooks/useInput'
 
@@ -36,7 +37,9 @@ const Login = ({ classes }) => {
       if (res.status === 200) {
         // * registered succesfully
         window.alert('Logged in!')
-        window.localStorage.setItem('token', data.token)
+        window.sessionStorage.setItem('token', data.token)
+        email.clear()
+        password.clear()
       } else {
         // * nope
         console.log(data)
@@ -60,6 +63,7 @@ const Login = ({ classes }) => {
         <button>Login</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
+      You dont have an account? <Link to='/register'>Sign Up!</Link>
     </div>
   )
 }

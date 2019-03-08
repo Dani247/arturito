@@ -6,6 +6,7 @@ const styles = theme => ({
     display: 'flex',
     flexFlow: 'column wrap',
     alignItems: 'center',
+    transform: 'translateX(0)',
     '& > a': {
       width: '100%',
       padding: '1em 0',
@@ -15,6 +16,15 @@ const styles = theme => ({
       '&:hover': {
         backgroundColor: theme.colors.secondary.backgroundColor
       }
+    },
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      display: 'block',
+      width: '100%',
+      height: '5rem',
+      bottom: '0',
+      backgroundColor: `linearGradient(45deg, ${theme.colors.primary.backgroundColor} 45%, #aaa 50%)`
     }
   }
 })
