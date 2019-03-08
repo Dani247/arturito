@@ -1,6 +1,10 @@
 const styles = theme => ({
   headerContainer: {
-    position: 'absolute'
+    display: 'flex',
+    flexFlow: 'column wrap',
+    position: 'absolute',
+    width: '5rem',
+    height: '100%'
   }
 })
 

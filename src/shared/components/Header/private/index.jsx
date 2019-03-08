@@ -12,7 +12,7 @@ import { userFailed } from '../../../redux/actions/authActions'
 const Header = ({ classes, logOut }) => {
   return (
     <header className={classes.headerContainer}>
-       <Link to='/accounting'>Accounting</Link>
+       <Link to='/'>Accounting</Link>
        <Link to='/goals'>Goals</Link>
        <Link to='/pending'>Pending</Link>
        <Link to='/profile'>Profile</Link>
