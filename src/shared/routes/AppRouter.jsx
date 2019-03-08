@@ -6,7 +6,6 @@ import store from '../redux/configureStore'
 
 // Components
 import App from '../../components/App'
-import Header from '../components/Header/public/'
 
 // import Footer from '../components/Footer'
 
@@ -23,7 +22,6 @@ const AppRouter = () => {
     <Provider store={store({authed: false})}>
       <ThemeProvider theme={theme}>
         <App>
-          <Header />
           <Suspense fallback={<Preloader />}>
             <IsLoggedInRouter />
           </Suspense>

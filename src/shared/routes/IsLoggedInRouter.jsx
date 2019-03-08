@@ -1,33 +1,24 @@
 import React, { useEffect } from 'react'
 
-// Routes
-import { Router } from "@reach/router";
-import Error404 from '../components/Error404'
-
 // * redux
 import { connect } from 'react-redux'
 import { getUser } from '../redux/actions/authActions'
 
-// Lazy components
-const Login = React.lazy(() => import("../../components/public/Login/"));
-const Register = React.lazy(() => import('../../components/public/Register/'))
-const Home = React.lazy(() => import("../../components/public/Home/"));
+// * public Routes
+import PublicContainer from '../../components/public/'
+// * private Routes
+import PrivateContainer from '../../components/private/'
 
 const IsLoggedInRouter = ({ state, getUserData }) => {
   useEffect(() => {
-    if(state.token) {
+    if (state.token) {
       getUserData(state.token)
     }
-  }, [])
+  }, [state.token])
 
   return (
     <div>
-      <Router className="routerContainer" primary={false}>
-        <Home path="home" />
-        <Login path="/" />
-        <Register path='register' />
-        <Error404 default/>
-      </Router>
+      {state.isAuth ? <PrivateContainer /> : <PublicContainer />}
     </div>
   )
 }
