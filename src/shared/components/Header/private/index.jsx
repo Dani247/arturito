@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { userFailed } from '../../../redux/actions/authActions'
 
-const Header = ({ classes }) => {
+const Header = ({ classes, logOut }) => {
   return (
     <header className={classes.headerContainer}>
        <Link to='/accounting'>Accounting</Link>
@@ -18,6 +18,7 @@ const Header = ({ classes }) => {
        <Link to='/profile'>Profile</Link>
        <Link to='/programing'>Programing</Link>
        <Link to='/reports'>Reports</Link>
+       <button onClick={logOut}>Sign Out</button>
     </header>
   )
 }
