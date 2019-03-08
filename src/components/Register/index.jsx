@@ -2,12 +2,17 @@ import React, { useState } from 'react'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './stylesRegister'
-import { Link } from '@reach/router'
+import { Link, Redirect } from '@reach/router'
 import { Ghost } from 'react-kawaii'
 // * Hooks
 import useInput from '../../shared/hooks/useInput'
 
-const Register = ({ classes }) => {
+// * redux
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { userLogin } from '../../shared/redux/actions/authActions'
+
+const Register = ({ classes, login, state }) => {
   // * form input states
   const name = useInput('')
   const lastName = useInput('')
@@ -53,6 +58,7 @@ const Register = ({ classes }) => {
         lastName.clear()
         password.clear()
         phone.clear()
+        login(data)
       } else {
         // * nope
         console.log(data)
@@ -69,8 +75,8 @@ const Register = ({ classes }) => {
   }
 
   return (
-    <div className={classes.formContainer}>
-      <Ghost size={50} mood="shocked" color="#E0E4E8" />
+    state.isAuth ? <Redirect noThrow to='/home' /> : <div className={classes.formContainer}>
+      <Ghost size={50} mood='shocked' color='#E0E4E8' />
       <h1>Sign Up</h1>
       <form onSubmit={onSubmit}>
         <input disabled={isLoading} {...name.props} type='text' required placeholder='Name' />
@@ -82,8 +88,16 @@ const Register = ({ classes }) => {
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
       Already have an account? <Link to='/login'>Sign In!</Link>
-    </div>
+    </div> 
   )
 }
 
-export default injectSheet(styles)(Register)
+const mapStateToProps = state => ({
+  state: state.authReducer
+})
+
+const mapDispatchToProps = dispatch => ({
+  login: (payload) => dispatch(userLogin(payload))
+})
+
+export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Register)
