@@ -1,5 +1,5 @@
 // * types
-import { AUTH_SUCCESS, AUTH_FAILED } from '../types/authTypes'
+import { AUTH_SUCCESS, AUTH_LOGOUT, AUTH_GET_USER_DATA } from '../types/authTypes'
 
 const initState = {
   isAuth: false,
@@ -16,7 +16,7 @@ export default (state = initState, action) => {
         ...action.payload,
         isAuth: true
       }
-    case AUTH_FAILED:
+    case AUTH_LOGOUT:
     // * sets user and token to null and isAuth to false
       window.sessionStorage.removeItem('token')
       return {
@@ -24,6 +24,12 @@ export default (state = initState, action) => {
         token: null,
         user: false,
         isAuth: false
+      }
+    case AUTH_GET_USER_DATA:
+      return {
+        ...state,
+        isAuth: true,
+        user: action.payload
       }
     default:
       return state

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import styles from './stylesLogin'
 import { Ghost } from 'react-kawaii'
-import { Link } from '@reach/router'
+import { Link, Redirect } from '@reach/router'
 // * Hooks
 import useInput from '../../shared/hooks/useInput'
 
@@ -47,11 +47,9 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
         window.sessionStorage.setItem('token', data.token)
         email.clear()
         password.clear()
-        console.log(data)
         userLogin({ ...data })
       } else {
         // * nope
-        console.log(data)
         setStatusMsg(data.msg)
         userFailed()
       }
@@ -65,7 +63,7 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
   }
 
   return (
-    <div className={classes.formContainer}>
+    state.isAuth ? <Redirect noThrow to='/home' /> : <div className={classes.formContainer}>
       <Ghost size={100} mood='blissful' color='#E0E4E8' />
       <h1>Login</h1>
       <form onSubmit={onSubmit}>
@@ -74,13 +72,15 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
         <button>Login</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
+      <p>
       You dont have an account? <Link to='/register'>Sign Up!</Link>
+      </p>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  state
+  state: state.authReducer
 })
 
 const mapDispatchToProps = dispatch => ({
