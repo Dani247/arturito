@@ -8,8 +8,8 @@ import styles from './styesHeader'
 const Header = ({classes}) => {
   return(
     <header className={classes.headerContainer}>
-      <Link to='/'>Home</Link>
-      <Link to='login'>Login</Link>
+      <Link to='home'>Home</Link>
+      <Link to='/'>Login</Link>
     </header>
   )
 }
