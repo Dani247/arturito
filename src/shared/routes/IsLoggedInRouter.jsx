@@ -9,9 +9,9 @@ import { connect } from 'react-redux'
 import { getUser } from '../redux/actions/authActions'
 
 // Lazy components
-const Login = React.lazy(() => import("../../components/Login/"));
-const Register = React.lazy(() => import('../../components/Register/'))
-const Home = React.lazy(() => import("../../components/Home/"));
+const Login = React.lazy(() => import("../../components/public/Login/"));
+const Register = React.lazy(() => import('../../components/public/Register/'))
+const Home = React.lazy(() => import("../../components/public/Home/"));
 
 const IsLoggedInRouter = ({ state, getUserData }) => {
   useEffect(() => {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './stylesHome'
-import arturito from '../../shared/media/arturito.jpg'
+import arturito from '../../../shared/media/arturito.jpg'
 
 const Home = ({classes}) => {
 

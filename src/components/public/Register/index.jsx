@@ -5,12 +5,12 @@ import styles from './stylesRegister'
 import { Link, Redirect } from '@reach/router'
 import { Ghost } from 'react-kawaii'
 // * Hooks
-import useInput from '../../shared/hooks/useInput'
+import useInput from '../../../shared/hooks/useInput'
 
 // * redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { userLogin } from '../../shared/redux/actions/authActions'
+import { userLogin } from '../../../shared/redux/actions/authActions'
 
 const Register = ({ classes, login, state }) => {
   // * form input states
@@ -87,7 +87,7 @@ const Register = ({ classes, login, state }) => {
         <button>Register</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
-      Already have an account? <Link to='/login'>Sign In!</Link>
+      <p>Already have an account? <Link to='/login'>Sign In!</Link></p>
     </div> 
   )
 }

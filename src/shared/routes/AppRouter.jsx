@@ -6,7 +6,7 @@ import store from '../redux/configureStore'
 
 // Components
 import App from '../../components/App'
-import Header from '../components/Header'
+import Header from '../components/Header/public/'
 
 // import Footer from '../components/Footer'
 

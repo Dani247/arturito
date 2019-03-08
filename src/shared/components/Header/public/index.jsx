@@ -7,7 +7,7 @@ import styles from './styesHeader'
 // * redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { userFailed } from '../../redux/actions/authActions'
+import { userFailed } from '../../../redux/actions/authActions'
 
 const Header = ({ classes, logOut, state }) => {
   return (

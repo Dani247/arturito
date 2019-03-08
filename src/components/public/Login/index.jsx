@@ -5,12 +5,12 @@ import styles from './stylesLogin'
 import { Ghost } from 'react-kawaii'
 import { Link, Redirect } from '@reach/router'
 // * Hooks
-import useInput from '../../shared/hooks/useInput'
+import useInput from '../../../shared/hooks/useInput'
 
 // * redux
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { userLogin, userFailed } from '../../shared/redux/actions/authActions'
+import { userLogin, userFailed } from '../../../shared/redux/actions/authActions'
 
 const Login = ({ classes, state, userLogin, userFailed }) => {
   // * form input states
