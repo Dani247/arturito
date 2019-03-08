@@ -7,8 +7,6 @@ const styles = theme => ({
     flexFlow: 'column wrap',
     alignItems: 'center',
     '& > a': {
-      width: '100%',
-      padding: '1em 0',
       textAlign: 'center',
       textDecoration: 'none',
       color: '#FFE873',

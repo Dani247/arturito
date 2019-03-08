@@ -29,8 +29,8 @@ const AppRouter = () => {
           <Header />
           <Suspense fallback={<div>...Loading</div>}>
             <Router className="routerContainer" primary={false}>
-              <Home path="/" />
-              <Login path="login" />
+              {/* <Home path="login" /> */}
+              <Login path="/" />
               <Register path='register' />
             </Router>
           </Suspense>
