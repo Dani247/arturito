@@ -7,6 +7,9 @@ const vars = require('../../config/vars')
 // * users controller
 const Users = require('../../controllers/users')
 
+//* auth middleware
+const auth = require('../../middleware/auth')
+
 // * PUBLIC login
 router.post('/', async (req, res) => {
   let newUser = req.body
@@ -37,6 +40,13 @@ router.post('/', async (req, res) => {
   } else {
     res.status(404).json({ msg: 'Email not found', code: 404 })
   }
+})
+
+// * PRIVATE get user data
+router.get('/user', auth, async (req, res) => {
+  const { _id } = req.user
+  const result = await Users.getUserById(_id).select('-password')
+  res.status(200).send(result)
 })
 
 module.exports = router
