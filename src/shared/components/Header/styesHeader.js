@@ -10,6 +10,7 @@ const styles = theme => ({
     display: 'flex',
     flexFlow: 'column wrap',
     alignItems: 'center',
+    transform: 'translateX(0)',
     '& > a': {
       textAlign: 'center',
       textDecoration: 'none',

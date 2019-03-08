@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import styles from './stylesRegister'
+import { Link } from '@reach/router'
 
 // * hooks
 import useInput from '../../shared/hooks/useInput'
@@ -46,10 +47,15 @@ const Register = ({ classes }) => {
       if (res.status === 200) {
         // * registered succesfully
         window.alert('Registered in!')
-        window.localStorage.setItem('token', data.token)
+        window.sessionStorage.setItem('token', data.token)
+        name.clear()
+        lastName.clear()
+        password.clear()
+        phone.clear()
       } else {
         // * nope
         console.log(data)
+        password.clear()
         setStatusMsg(data.msg)
       }
 
@@ -63,7 +69,7 @@ const Register = ({ classes }) => {
 
   return (
     <div className={classes.formContainer}>
-      <h1>Sing Up</h1>
+      <h1>Sign Up</h1>
       <form onSubmit={onSubmit}>
         <input disabled={isLoading} {...name.props} type='text' required placeholder='Name' />
         <input disabled={isLoading} {...lastName.props} type='text' required placeholder='Last Name' />
@@ -73,6 +79,7 @@ const Register = ({ classes }) => {
         <button>Register</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
+      Already have an account? <Link to='/login'>Sign In!</Link>
     </div>
   )
 }
