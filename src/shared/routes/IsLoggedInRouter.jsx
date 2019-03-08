@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { getUser } from '../redux/actions/authActions'
 
 // * public Routes
-import PublicContainer from '../../components/public/'
+import RoutesPrivateContainer from '../../components/public/routes'
 // * private Routes
-import PrivateContainer from '../../components/private/'
+import RoutesPublicContainer from '../../components/private/routes'
 
 const IsLoggedInRouter = ({ state, getUserData }) => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const IsLoggedInRouter = ({ state, getUserData }) => {
 
   return (
     <div>
-      {state.isAuth ? <PrivateContainer /> : <PublicContainer />}
+      {state.isAuth ? <RoutesPublicContainer /> : <RoutesPrivateContainer />}
     </div>
   )
 }

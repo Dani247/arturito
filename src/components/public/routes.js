@@ -5,9 +5,9 @@ import Error404 from '../../shared/components/Error404'
 import Header from '../../shared/components/Header/public'
 
 // Lazy components
-const Login = React.lazy(() => import("../../components/public/Login/"));
-const Register = React.lazy(() => import('../../components/public/Register/'))
-const Home = React.lazy(() => import("../../components/public/Home/"));
+const Login = React.lazy(() => import("./Login"));
+const Register = React.lazy(() => import('./Register'))
+const Home = React.lazy(() => import("./Home"));
 
 
 const PublicContainer = () => {
