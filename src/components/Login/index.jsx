@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
+// Styles
 import injectSheet from 'react-jss'
 import styles from './stylesLogin'
+<<<<<<< HEAD
 import { Link } from '@reach/router'
 // * hooks
+=======
+import { Ghost } from 'react-kawaii'
+// * Hooks
+>>>>>>> 964e5f05c719a8bbd2ad403a5e4eb49e3bccb8a5
 import useInput from '../../shared/hooks/useInput'
 
 const Login = ({ classes }) => {
@@ -56,9 +62,10 @@ const Login = ({ classes }) => {
 
   return (
     <div className={classes.formContainer}>
+      <Ghost size={100} mood="blissful" color="#E0E4E8" />
       <h1>Login</h1>
       <form onSubmit={onSubmit}>
-        <input disabled={isLoading} {...email.props} required placeholder='example@example.com' type='text' />
+        <input disabled={isLoading} {...email.props} required placeholder='example@example.com' type='email' />
         <input disabled={isLoading} {...password.props} required placeholder='*************' type='password' />
         <button>Login</button>
       </form>
