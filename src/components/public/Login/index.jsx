@@ -4,6 +4,7 @@ import injectSheet from 'react-jss'
 import styles from './stylesLogin'
 import { Ghost } from 'react-kawaii'
 import { Link, Redirect } from '@reach/router'
+import swal from 'sweetalert'
 // * Hooks
 import useInput from '../../../shared/hooks/useInput'
 
@@ -43,11 +44,14 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
 
       if (res.status === 200) {
         // * registered succesfully
-        window.alert('Logged in!')
         window.sessionStorage.setItem('token', data.token)
         email.clear()
         password.clear()
-        userLogin({ ...data })
+        swal({
+          title: 'Logged in successfully!',
+          icon: 'success'
+        })
+          .then(() => userLogin({ ...data }))
       } else {
         // * nope
         setStatusMsg(data.msg)
