@@ -81,7 +81,7 @@ const Register = ({ classes }) => {
         <button>Register</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
-      Already have an account? <Link to='/login'>Sign In!</Link>
+      Already have an account? <Link to='/'>Sign In!</Link>
     </div>
   )
 }
