@@ -1,15 +1,15 @@
 export default theme => ({
   preloaderContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexFlow: 'column wrap',
     height: '100%'
   },
   planet: {
     animation: 'opacitychange 1s ease-in-out 0.5s infinite'
   },
   preloader: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
     '&>span': {
       display: 'inline-block',
       width: 20,

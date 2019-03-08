@@ -18,21 +18,6 @@ const styles = theme => ({
       '&:hover': {
         backgroundColor: theme.colors.secondary.backgroundColor
       }
-<<<<<<< HEAD
-    },
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      display: 'block',
-      width: '100%',
-      height: '5rem',
-      bottom: '0',
-      backgroundColor: `linearGradient(45deg, ${theme.colors.primary.backgroundColor} 45%, #aaa 50%)`
-    }
-  }
-})
-=======
     }*/
->>>>>>> 964e5f05c719a8bbd2ad403a5e4eb49e3bccb8a5
 
 export default styles
