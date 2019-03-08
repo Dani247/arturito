@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+// Styles
 import injectSheet from 'react-jss'
 import styles from './stylesRegister'
 import { Link } from '@reach/router'
-
-// * hooks
+import { Ghost } from 'react-kawaii'
+// * Hooks
 import useInput from '../../shared/hooks/useInput'
 
 const Register = ({ classes }) => {
@@ -13,9 +14,9 @@ const Register = ({ classes }) => {
   const email = useInput('')
   const password = useInput('')
   const phone = useInput('')
-  // * loading state
+
+  // ! State
   const [ isLoading, setIsLoading ] = useState(false)
-  // * status message
   const [ statusMsg, setStatusMsg ] = useState('')
 
   // * on form submit
@@ -69,6 +70,7 @@ const Register = ({ classes }) => {
 
   return (
     <div className={classes.formContainer}>
+      <Ghost size={50} mood="shocked" color="#E0E4E8" />
       <h1>Sign Up</h1>
       <form onSubmit={onSubmit}>
         <input disabled={isLoading} {...name.props} type='text' required placeholder='Name' />
