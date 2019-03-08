@@ -8,8 +8,6 @@ const styles = theme => ({
     alignItems: 'center',
     transform: 'translateX(0)',
     '& > a': {
-      width: '100%',
-      padding: '1em 0',
       textAlign: 'center',
       textDecoration: 'none',
       color: '#FFE873',
