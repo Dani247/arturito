@@ -26,10 +26,10 @@ router.get('/:id', auth, async (req, res) => {
 // * PUBLIC post a new user
 router.post('/', async (req, res) => {
   let newUser = req.body
-  const { name, password, email, phone } = newUser
+  const { name, lastName, password, email, phone } = newUser
 
   // * validation
-  if (!name || !password || !email || !phone) res.status(400).json({ msg: 'Field missing', code: 400 })
+  if (!name || !lastName || !password || !email || !phone) res.status(400).json({ msg: 'Field missing', code: 400 })
 
   // ? check if email already there
   const isUser = await Users.getUserByEmail(newUser.email)
