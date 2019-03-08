@@ -3,10 +3,8 @@ const styles = ({
     height: '100%',
     width: '100%',
     display: 'grid',
-    gridTemplateAreas: `
-    'head'
-    'main'`,
-    gridAutoRows: '2rem auto',
+    gridTemplateAreas: `'main'`,
+    gridAutoRows: '100%',
     gridAutoColumns: '100%'
   },
   '@media (min-width: 500px)':{
