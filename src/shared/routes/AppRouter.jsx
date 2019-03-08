@@ -15,6 +15,7 @@ import Header from "../components/Header";
 // Styles
 import { ThemeProvider } from "react-jss";
 import theme from "../themes/v1";
+import Preloader from '../components/Preloader/'
 
 // Lazy components
 const Login = React.lazy(() => import("../../components/Login/"));
@@ -27,7 +28,7 @@ const AppRouter = () => {
       <ThemeProvider theme={theme}>
         <App>
           <Header />
-          <Suspense fallback={<div>...Loading</div>}>
+          <Suspense fallback={<Preloader />}>
             <Router className="routerContainer" primary={false}>
               <Home path="home" />
               <Login path="/" />
