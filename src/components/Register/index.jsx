@@ -1,29 +1,39 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
-import styles from './stylesLogin'
+import styles from './stylesRegister'
+
 // * hooks
 import useInput from '../../shared/hooks/useInput'
 
-const Login = ({ classes }) => {
+const Register = ({ classes }) => {
   // * form input states
+  const name = useInput('')
+  const lastName = useInput('')
   const email = useInput('')
   const password = useInput('')
+  const phone = useInput('')
   // * loading state
   const [ isLoading, setIsLoading ] = useState(false)
   // * status message
   const [ statusMsg, setStatusMsg ] = useState('')
 
+  // * on form submit
   const onSubmit = async e => {
     e.preventDefault()
 
+    // * set body
     const body = JSON.stringify({
+      name: name.props.value.trim(),
+      lastName: lastName.props.value.trim(),
       email: email.props.value.trim(),
-      password: password.props.value
+      password: password.props.value,
+      phone: phone.props.value.trim()
     })
 
+    // * try post request to register new user
     try {
       setIsLoading(true)
-      const res = await window.fetch('https://arturito-api.herokuapp.com/api/v1/auth', {
+      const res = await window.fetch('https://arturito-api.herokuapp.com/api/v1/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,7 +45,7 @@ const Login = ({ classes }) => {
 
       if (res.status === 200) {
         // * registered succesfully
-        window.alert('Logged in!')
+        window.alert('Registered in!')
         window.localStorage.setItem('token', data.token)
       } else {
         // * nope
@@ -53,15 +63,18 @@ const Login = ({ classes }) => {
 
   return (
     <div className={classes.formContainer}>
-      <h1>Login</h1>
+      <h1>Sing Up</h1>
       <form onSubmit={onSubmit}>
-        <input disabled={isLoading} {...email.props} required placeholder='example@example.com' type='text' />
-        <input disabled={isLoading} {...password.props} required placeholder='*************' type='password' />
-        <button>Login</button>
+        <input disabled={isLoading} {...name.props} type='text' required placeholder='Name' />
+        <input disabled={isLoading} {...lastName.props} type='text' required placeholder='Last Name' />
+        <input disabled={isLoading} {...email.props} type='text' required placeholder='example@example.com' />
+        <input disabled={isLoading} {...password.props} type='password' required placeholder='*************' />
+        <input disabled={isLoading} {...phone.props} type='text' required placeholder='(555-555-5555)' />
+        <button>Register</button>
       </form>
       {isLoading ? <>Sending</> : <>{statusMsg}</>}
     </div>
   )
 }
 
-export default injectSheet(styles)(Login)
+export default injectSheet(styles)(Register)
