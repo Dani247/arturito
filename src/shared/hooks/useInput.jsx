@@ -4,7 +4,7 @@ export default (initVal) => {
   const [ value, setValue ] = useState(initVal)
 
   const onChangeHandle = e => {
-    setValue(e)
+    setValue(e.target.value)
   }
 
   const clear = () => {
