@@ -10,6 +10,7 @@ import { Router } from "@reach/router";
 // Components
 import App from "../../components/App";
 import Header from "../components/Header";
+import Error404 from '../components/Error404'
 // import Footer from '../components/Footer'
 
 // Styles
@@ -33,6 +34,7 @@ const AppRouter = () => {
               <Home path="home" />
               <Login path="/" />
               <Register path='register' />
+              <Error404 default/>
             </Router>
           </Suspense>
         </App>
