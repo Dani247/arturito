@@ -4,6 +4,7 @@ import injectSheet from 'react-jss'
 import styles from './stylesRegister'
 import { Link, Redirect } from '@reach/router'
 import { Ghost } from 'react-kawaii'
+import swal from 'sweetalert'
 // * Hooks
 import useInput from '../../../shared/hooks/useInput'
 
@@ -52,13 +53,16 @@ const Register = ({ classes, login, state }) => {
 
       if (res.status === 200) {
         // * registered succesfully
-        window.alert('Registered in!')
         window.sessionStorage.setItem('token', data.token)
         name.clear()
         lastName.clear()
         password.clear()
         phone.clear()
-        login(data)
+        swal({
+          title: 'Registered successfully!',
+          icon: 'success'
+        })
+          .then(() => login(data))
       } else {
         // * nope
         console.log(data)
