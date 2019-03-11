@@ -12,7 +12,7 @@ const Accounting = React.lazy(() => import('./Accounting/'))
 function PrivateContainer () {
 
   const [ sideDrawerOpen, setSideDrawerOpen  ] = useState(false)
-  let  backdrop
+  let backdrop
 
   const drawerToggleClickHandler = () => {
     setSideDrawerOpen((preventState) => {
@@ -26,11 +26,13 @@ function PrivateContainer () {
 
   if(sideDrawerOpen) {
     backdrop = <Backdrop click={backdropClickHandler}/>
+  } else {
+
   }
   return (
     <>
       <Header drawerToggleClickHandler={drawerToggleClickHandler}/>
-      <SideDrawer show={sideDrawerOpen}/>
+      <SideDrawer backdropClickHandler={backdropClickHandler} drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
       {backdrop}
       <Router className='routerContainer' primary={false}>
         <Accounting path='/'/>

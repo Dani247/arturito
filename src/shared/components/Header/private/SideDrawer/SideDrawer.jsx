@@ -6,19 +6,27 @@ import injectSheet from 'react-jss'
 import styles from './SideDrawerStyles'
 import classNames from 'classnames'
 
-const SideDrawer = ({classes, show}) => {
+const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler }) => {
   let drawerClasses = classes.sideDrawer
   let combineClasses = classNames(
     classes.sideDrawer,
     classes.sideDrawerOpen
   )
-  
-  if(show){
-    drawerClasses =combineClasses
+
+  const listOnClickHandler = e => {
+    if (e.target.href) {
+      drawerToggleClickHandler()
+      backdropClickHandler()
+    }
   }
-  return(
+
+  if (show.sideDrawerOpen) {
+    drawerClasses = combineClasses
+  }
+
+  return (
     <nav className={drawerClasses}>
-      <ul>
+      <ul onClick={listOnClickHandler}>
         <li><Link to='/'>Accounting</Link></li>
         <li><Link to='/'>Goals</Link></li>
         <li><Link to='/'>Home</Link></li>
