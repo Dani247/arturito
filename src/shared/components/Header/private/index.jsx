@@ -26,7 +26,7 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
   return (
     <header className={classes.headerContainer}>
       <nav className={classes.toolbarNavigation}>
-        <div>
+        <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
         <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>

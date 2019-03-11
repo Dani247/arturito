@@ -1,3 +1,5 @@
+import { NONAME } from "dns";
+
 const styles = ({
   sideDrawer: {
     height: '100%',
@@ -31,6 +33,11 @@ const styles = ({
   },
   sideDrawerOpen: {
     transform: 'translateX(0)'
+  },
+  '@media (min-width: 760px)': {
+    sideDrawer: {
+      display: 'none'
+    }
   }
 })
 
