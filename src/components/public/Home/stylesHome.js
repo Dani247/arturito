@@ -21,6 +21,8 @@ const styles = ({
     width: '50%',
     backgroundColor: '#fff',
   },
+  developersContainer: { }
+  
 
 })
 
