@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // Routes
 import { Router } from '@reach/router'
 // Components
@@ -10,11 +10,25 @@ import Backdrop from '../../shared/components/Backdrop/Backdrop'
 const Accounting = React.lazy(() => import('./Accounting/'))
 
 function PrivateContainer () {
+
+  const [ sideDrawerOpen, setSideDrawerOpen  ] = useState(false)
+  let sideDrawer, backdrop
+
+  const drawerToggleClickHandler = () => {
+    setSideDrawerOpen((preventState) => {
+      return {sideDrawerOpen: !preventState.sideDrawerOpen}
+    })
+  }
+
+  if(sideDrawerOpen) {
+    sideDrawer = <SideDrawer/>
+    backdrop = <Backdrop/>
+  }
   return (
     <>
-      <Header />
-      <SideDrawer/>
-      <Backdrop/>
+      <Header drawerToggleClickHandler={drawerToggleClickHandler}/>
+      {sideDrawer}
+      {backdrop}
       <Router className='routerContainer' primary={false}>
         <Accounting path='/'/>
         <Error404 default />

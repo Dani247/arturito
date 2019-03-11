@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { userFailed } from '../../../redux/actions/authActions'
 
-const Header = ({ classes, logOut }) => {
+const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
   const onLogOut = () => {
     swal({
       title: 'Are you sure?',
@@ -27,7 +27,7 @@ const Header = ({ classes, logOut }) => {
     <header className={classes.headerContainer}>
       <nav className={classes.toolbarNavigation}>
         <div>
-          <DrawerToggleButton />
+          <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
         <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>
         <div className={classes.space}></div>
