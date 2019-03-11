@@ -2,7 +2,7 @@ const styles = ({
   sideDrawer: {
     height: '100%',
     backgroundColor: 'white',
-    boxShadow: '2px 0px 5px rgba(0,0,0,0.5)',
+    boxShadow: '1px 0px 7px rgba(0,0,0,0.5)',
     position: 'fixed',
     top: '0',
     left: '0',

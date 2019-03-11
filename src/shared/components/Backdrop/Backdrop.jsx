@@ -3,9 +3,8 @@ import React from 'react'
 import styles from  './BackdropStyles'
 import injectSheet from 'react-jss'
 
-const Backdrop = ({classes}) => (
-  <div className={classes.backdrop}>
-
+const Backdrop = ({classes, click}) => (
+  <div className={classes.backdrop} onClick={click}>
   </div>
 )
 

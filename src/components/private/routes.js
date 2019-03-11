@@ -20,9 +20,13 @@ function PrivateContainer () {
     })
   }
 
+  const backdropClickHandler = () => {
+    setSideDrawerOpen(false)
+  }
+
   if(sideDrawerOpen) {
     sideDrawer = <SideDrawer/>
-    backdrop = <Backdrop/>
+    backdrop = <Backdrop click={backdropClickHandler}/>
   }
   return (
     <>
