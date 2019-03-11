@@ -35,5 +35,11 @@ export default {
         backgroundColor: '#4B8BBE'
       }
     }
+  },
+  errorMsg: {
+    backgroundColor: '#ccc',
+    color: 'red',
+    width: '80%',
+    margin: '0 10%'
   }
 }

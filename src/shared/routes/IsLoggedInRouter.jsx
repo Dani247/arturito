@@ -28,7 +28,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getUserData: async (token) => await dispatch(await getUser(token))
+  getUserData: async (token) => dispatch(await getUser(token))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(IsLoggedInRouter)
