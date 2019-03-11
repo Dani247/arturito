@@ -13,6 +13,7 @@ const styles = theme => ({
     padding: '0 1rem'
   },
   toolbarLogo:{
+    marginLeft: '1rem',
     '& a': {
       color: 'white',
       textDecoration: 'none',
@@ -31,7 +32,13 @@ const styles = theme => ({
       margin: '0',
       padding: '0',
       display: 'flex'
+    },
+    '& li': {
+      padding: '0 0.5rem',
     }
+  },
+  spacer: {
+    flex: '1'
   }
 })
 
