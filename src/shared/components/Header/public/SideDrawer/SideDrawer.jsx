@@ -19,12 +19,9 @@ const SideDrawer = ({classes, show}) => {
   return(
     <nav className={drawerClasses}>
       <ul>
-        <li><Link to='/'>Accounting</Link></li>
-        <li><Link to='/goals'>Goals</Link></li>
-        <li><Link to='/peding'>Peding</Link></li>
-        <li><Link to='/profile'>Profile</Link></li>
-        <li><Link to='/programing'>Programing</Link></li>
+        <li><Link to='/'>Login</Link></li>
         <li><Link to='/reports'>Repots</Link></li>
+        {state.isAuth ? <button onClick={logOut}>Sign out</button> : <Link to='/'>Sign in</Link>}
       </ul>
     </nav>
   )
