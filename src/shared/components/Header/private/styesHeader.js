@@ -17,7 +17,11 @@ const styles = theme => ({
     '& a': {
       color: 'white',
       textDecoration: 'none',
-      fontSize: '1rem'
+      fontSize: '1rem',
+      width: '100%',
+      maxHeight: '50px',
+      display: 'inline-block',
+      height: '100%'
     }
   },
   toolbarNavigaionItems:{
@@ -39,6 +43,9 @@ const styles = theme => ({
   },
   spacer: {
     flex: '1'
+  },
+  reactLogo:{
+    maxWidth: '50px'
   },
   '@media (max-width: 768px)': {
     toolbarNavigaionItems:{

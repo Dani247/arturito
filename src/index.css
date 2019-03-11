@@ -40,5 +40,5 @@ li {
   grid-area: main;
   width: 100%;
   height: 100%;
-  grid-area: main
+  padding-top: 56px;
 }

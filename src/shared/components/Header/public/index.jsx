@@ -4,26 +4,29 @@ import { Link } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './styesHeader'
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { userFailed } from '../../../redux/actions/authActions'
+import reactLogo from '../../../media/reactLogo.png'
+// Components
+import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 
-const Header = ({ classes, logOut, state }) => {
+const Header = ({ classes, drawerToggleClickHandler }) => {
   return (
     <header className={classes.headerContainer}>
-      <Link to='home'>Home</Link>
-      {state.isAuth ? <button onClick={logOut}>Sign out</button> : <Link to='/'>Sign in</Link>}
+       <nav className={classes.toolbarNavigation}>
+        <div className={classes.toolbarToggleButton}>
+          <DrawerToggleButton click={drawerToggleClickHandler} />
+        </div>
+        <div className={classes.toolbarLogo}><Link to="/"><img className={classes.reactLogo} src={reactLogo} alt="reactLogo"/></Link></div>
+        <div className={classes.space}></div>
+        <div className={classes.toolbarNavigaionItems}>
+          <ul>
+            <li> <Link to='/'>Login</Link> </li>
+            <li> <Link to='/home'>Home</Link> </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(userFailed())
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Header)
+const publicHeaderWithStyles = injectSheet(styles)(Header)
+export default publicHeaderWithStyles

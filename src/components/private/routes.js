@@ -6,13 +6,15 @@ import Error404 from '../../shared/components/Error404'
 import Header from '../../shared/components/Header/private'
 import SideDrawer from '../../shared/components/Header/private/SideDrawer/SideDrawer'
 import Backdrop from '../../shared/components/Backdrop/Backdrop'
+
+
 // Lazy Components
 const Accounting = React.lazy(() => import('./Accounting/'))
 
 function PrivateContainer () {
 
   const [ sideDrawerOpen, setSideDrawerOpen  ] = useState(false)
-  let  backdrop
+  let backdrop
 
   const drawerToggleClickHandler = () => {
     setSideDrawerOpen((preventState) => {
@@ -27,16 +29,17 @@ function PrivateContainer () {
   if(sideDrawerOpen) {
     backdrop = <Backdrop click={backdropClickHandler}/>
   }
+
   return (
-    <>
-      <Header drawerToggleClickHandler={drawerToggleClickHandler}/>
-      <SideDrawer show={sideDrawerOpen}/>
-      {backdrop}
-      <Router className='routerContainer' primary={false}>
-        <Accounting path='/'/>
-        <Error404 default />
-      </Router>
-    </>
+  <>
+    <Header drawerToggleClickHandler={drawerToggleClickHandler}/>
+    <SideDrawer backdropClickHandler={backdropClickHandler} drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
+    {backdrop}
+    <Router className='routerContainer' primary={false}>
+      <Accounting path='/'/>
+      <Error404 default />
+    </Router>
+  </>
   )
 }
 
