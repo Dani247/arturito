@@ -5,8 +5,18 @@ import { Link, Redirect } from '@reach/router'
 import injectSheet from 'react-jss'
 import styles from './styesHeader'
 import swal from 'sweetalert'
+// * icons
+// * icons
+import { Icon } from '@iconify/react'
+import calcualtorIcon from '@iconify/react/uil/calcualtor'
+import awardIcon from '@iconify/react/uil/award'
+import clipboardNotes from '@iconify/react/uil/clipboard-notes'
+import userIcon from '@iconify/react/uil/user'
+import scheduleIcon from '@iconify/react/uil/schedule'
+import receiptAlt from '@iconify/react/uil/receipt-alt'
+import cancelIcon from '@iconify/react/uil/cancel'
 // Components
-import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
+import DrawerToggleButton from './SideDrawer/DrawerToggleButton'
 // * redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -40,13 +50,13 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
         <div className={classes.space} />
         <div className={classes.toolbarNavigaionItems}>
           <ul>
-            <li> <Link to='/'>Accounting</Link> </li>
-            <li> <Link to='/goals'>Goals</Link> </li>
-            <li> <Link to='/pending'>Pending</Link> </li>
-            <li> <Link to='/profile'>Profile</Link> </li>
-            <li> <Link to='/programing'>Programing</Link> </li>
-            <li> <Link to='/reports'>Reports</Link> </li>
-            <li>  <button onClick={onLogOut}>Sign Out</button> </li>
+            <li><Link to='/'><Icon icon={calcualtorIcon} /> Accounting</Link></li>
+            <li><Link to='/goals'><Icon icon={awardIcon} /> Goals</Link></li>
+            <li><Link to='/peding'><Icon icon={clipboardNotes} />Peding</Link></li>
+            <li><Link to='/profile'><Icon icon={userIcon} /> Profile</Link></li>
+            <li><Link to='/programing'><Icon icon={scheduleIcon} /> Programing</Link></li>
+            <li><Link to='/reports'><Icon icon={receiptAlt} /> Repots</Link></li>
+            <li><a onClick={onLogOut}><Icon icon={cancelIcon} /> Sign Out</a></li>
           </ul>
         </div>
       </nav>
