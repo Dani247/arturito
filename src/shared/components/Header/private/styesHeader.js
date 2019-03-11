@@ -39,6 +39,19 @@ const styles = theme => ({
   },
   spacer: {
     flex: '1'
+  },
+  '@media (max-width: 768px)': {
+    toolbarNavigaionItems:{
+      display: 'none'
+    }
+  },
+  '@media (min-width: 769px)': {
+    toolbarToggleButton:{
+      display: 'none'
+    },
+    toolbarLogo: {
+      marginLeft: '0'
+    }
   }
 })
 

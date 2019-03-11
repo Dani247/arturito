@@ -9,6 +9,8 @@ const styles = ({
     width: '70%',
     maxWidth: '400px',
     zIndex: '200',
+    transform: 'translateX(-100%)',
+    transition: 'transform 0.3s ease-out',
     '& ul': {
       height: '100%',
       display: 'flex',
@@ -25,6 +27,14 @@ const styles = ({
     },
     '& a:hover, & a:active': {
       color: '#fa923f'
+    }
+  },
+  sideDrawerOpen: {
+    transform: 'translateX(0)'
+  },
+  '@media (min-width: 760px)': {
+    sideDrawer: {
+      display: 'none'
     }
   }
 })

@@ -28,7 +28,7 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
     setStatusMsg('')
 
     const body = JSON.stringify({
-      email: email.props.value.trim(),
+      email: email.props.value.trim().toLowerCase(),
       password: password.props.value
     })
 
