@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 // Routes
-import { Link } from '@reach/router'
+import { Link, Redirect } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './styesHeader'
@@ -13,6 +13,8 @@ import { compose } from 'redux'
 import { userFailed } from '../../../redux/actions/authActions'
 
 const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
+  const [ redirect, setRedirect ] = useState(false)
+
   const onLogOut = () => {
     swal({
       title: 'Are you sure?',
@@ -20,17 +22,22 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
       icon: 'info',
       buttons: ['Stay', 'Sign Out']
     })
-      .then(res => res && logOut())
+      .then(res => {
+        if (res) {
+          setRedirect(true)
+          logOut()
+        }
+      })
   }
 
   return (
-    <header className={classes.headerContainer}>
+    redirect ? <Redirect noThrow to='/' /> : <header className={classes.headerContainer}>
       <nav className={classes.toolbarNavigation}>
         <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
         <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>
-        <div className={classes.space}></div>
+        <div className={classes.space} />
         <div className={classes.toolbarNavigaionItems}>
           <ul>
             <li> <Link to='/'>Accounting</Link> </li>

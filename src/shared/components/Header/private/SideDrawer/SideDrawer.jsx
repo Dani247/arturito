@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 // Routes
-import { Link } from '@reach/router'
+import { Link, Redirect } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './SideDrawerStyles'
@@ -13,6 +13,8 @@ import { compose } from 'redux'
 import { userFailed } from '../../../../redux/actions/authActions'
 
 const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler, logOut }) => {
+  const [ redirect, setRedirect ] = useState(false)
+
   let drawerClasses = classes.sideDrawer
   let combineClasses = classNames(
     classes.sideDrawer,
@@ -26,7 +28,12 @@ const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHand
       icon: 'info',
       buttons: ['Stay', 'Sign Out']
     })
-      .then(res => res && logOut())
+      .then(res => {
+        if (res) {
+          setRedirect(true)
+          logOut()
+        }
+      })
   }
 
   const listOnClickHandler = e => {
@@ -41,7 +48,7 @@ const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHand
   }
 
   return (
-    <nav className={drawerClasses}>
+    redirect ? <Redirect noThrow to='/' /> : <nav className={drawerClasses}>
       <ul onClick={listOnClickHandler}>
         <li><Link to='/'>Accounting</Link></li>
         <li><Link to='/goals'>Goals</Link></li>

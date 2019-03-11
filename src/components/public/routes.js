@@ -34,7 +34,7 @@ const PublicContainer = () => {
   return (
     <>
       <Header drawerToggleClickHandler={drawerToggleClickHandler} />
-      <SideDrawer show={sideDrawerOpen}/>
+      <SideDrawer backdropClickHandler={backdropClickHandler} drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
       {backdrop}
       <Router className='routerContainer' primary={false}>
         <Home path='home' />
