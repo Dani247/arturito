@@ -10,9 +10,15 @@ export const getUser = async token => {
   })
   const data = await result.json()
 
-  return {
-    type: AUTH_GET_USER_DATA,
-    payload: data
+  if (result.status === 200) {
+    return {
+      type: AUTH_GET_USER_DATA,
+      payload: data
+    }
+  } else {
+    return {
+      type: AUTH_LOGOUT
+    }
   }
 }
 

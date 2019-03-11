@@ -5,12 +5,14 @@ import { Link } from '@reach/router'
 import injectSheet from 'react-jss'
 import styles from './styesHeader'
 import swal from 'sweetalert'
+// Components
+import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 // * redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { userFailed } from '../../../redux/actions/authActions'
 
-const Header = ({ classes, logOut }) => {
+const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
   const onLogOut = () => {
     swal({
       title: 'Are you sure?',
@@ -23,13 +25,24 @@ const Header = ({ classes, logOut }) => {
 
   return (
     <header className={classes.headerContainer}>
-      <Link to='/'>Accounting</Link>
-      <Link to='/goals'>Goals</Link>
-      <Link to='/pending'>Pending</Link>
-      <Link to='/profile'>Profile</Link>
-      <Link to='/programing'>Programing</Link>
-      <Link to='/reports'>Reports</Link>
-      <button onClick={onLogOut}>Sign Out</button>
+      <nav className={classes.toolbarNavigation}>
+        <div>
+          <DrawerToggleButton click={drawerToggleClickHandler} />
+        </div>
+        <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>
+        <div className={classes.space}></div>
+        <div className={classes.toolbarNavigaionItems}>
+          <ul>
+            <li> <Link to='/'>Accounting</Link> </li>
+            <li> <Link to='/goals'>Goals</Link> </li>
+            {/* <li> <Link to='/pending'>Pending</Link> </li>
+            <li> <Link to='/profile'>Profile</Link> </li>
+            <li> <Link to='/programing'>Programing</Link> </li>
+            <li> <Link to='/reports'>Reports</Link> </li> */}
+            <li>  <button onClick={onLogOut}>Sign Out</button> </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   )
 }
