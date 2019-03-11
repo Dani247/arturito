@@ -5,6 +5,7 @@ import styles from './stylesRegister'
 import { Link, Redirect } from '@reach/router'
 import { Ghost } from 'react-kawaii'
 import swal from 'sweetalert'
+import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
 import useInput from '../../../shared/hooks/useInput'
 
@@ -28,6 +29,7 @@ const Register = ({ classes, login, state }) => {
   // * on form submit
   const onSubmit = async e => {
     e.preventDefault()
+    setStatusMsg('')
 
     // * set body
     const body = JSON.stringify({
@@ -65,7 +67,6 @@ const Register = ({ classes, login, state }) => {
           .then(() => login(data))
       } else {
         // * nope
-        console.log(data)
         password.clear()
         setStatusMsg(data.msg)
       }
@@ -90,9 +91,9 @@ const Register = ({ classes, login, state }) => {
         <input disabled={isLoading} {...phone.props} type='text' required placeholder='(555-555-5555)' />
         <button>Register</button>
       </form>
-      {isLoading ? <>Sending</> : <>{statusMsg}</>}
+      {isLoading ? <PreloaderSquare /> : <p className={classes.errorMsg}>{statusMsg}</p>}
       <p>Already have an account? <Link to='/'>Sign In!</Link></p>
-    </div> 
+    </div>
   )
 }
 

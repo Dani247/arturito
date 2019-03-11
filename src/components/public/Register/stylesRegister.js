@@ -12,5 +12,6 @@ export default theme => ({
       '& > input': theme.niceInput,
       '& > button': theme.niceButton.primary
     }
-  }
+  },
+  errorMsg: theme.errorMsg
 })

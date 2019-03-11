@@ -5,6 +5,7 @@ import styles from './stylesLogin'
 import { Ghost } from 'react-kawaii'
 import { Link, Redirect } from '@reach/router'
 import swal from 'sweetalert'
+import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
 import useInput from '../../../shared/hooks/useInput'
 
@@ -24,6 +25,7 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
+    setStatusMsg('')
 
     const body = JSON.stringify({
       email: email.props.value.trim(),
@@ -75,7 +77,7 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
         <input disabled={isLoading} {...password.props} required placeholder='*************' type='password' />
         <button>Login</button>
       </form>
-      {isLoading ? <>Sending</> : <>{statusMsg}</>}
+      {isLoading ? <PreloaderSquare /> : <p className={classes.errorMsg}>{statusMsg}</p>}
       <p>
       You dont have an account? <Link to='/register'>Sign Up!</Link>
       </p>
