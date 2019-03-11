@@ -6,12 +6,8 @@ import injectSheet from 'react-jss'
 import styles from './styesHeader'
 // Components
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { userFailed } from '../../../redux/actions/authActions'
 
-const Header = ({ classes, logOut, state, drawerToggleClickHandler }) => {
+const Header = ({ classes, drawerToggleClickHandler }) => {
   return (
     <header className={classes.headerContainer}>
        <nav className={classes.toolbarNavigation}>
@@ -24,7 +20,6 @@ const Header = ({ classes, logOut, state, drawerToggleClickHandler }) => {
           <ul>
             <li> <Link to='/'>Login</Link> </li>
             <li> <Link to='/home'>Home</Link> </li>
-            {state.isAuth ? <button onClick={logOut}>Sign out</button> : <Link to='/'>Sign in</Link>}
           </ul>
         </div>
       </nav>
@@ -32,12 +27,5 @@ const Header = ({ classes, logOut, state, drawerToggleClickHandler }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(userFailed())
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Header)
+const publicHeaderWithStyles = injectSheet(styles)(Header)
+export default publicHeaderWithStyles
