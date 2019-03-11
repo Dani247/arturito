@@ -18,7 +18,7 @@ const IsLoggedInRouter = ({ state, getUserData }) => {
 
   return (
     <div>
-      {state.isAuth ? <RoutesPublicContainer /> : <RoutesPrivateContainer />}
+      {state.isAuth ? <> <RoutesPublicContainer /> </> : <RoutesPrivateContainer />}
     </div>
   )
 }
