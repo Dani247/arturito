@@ -6,7 +6,8 @@ import injectSheet from 'react-jss'
 import styles from './styesHeader'
 import swal from 'sweetalert'
 // Components
-import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
+import DrawerToggleButton from './SideDrawer/DrawerToggleButton'
+import reactLogo from '../../../media/reactLogo.png'
 // * redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -36,7 +37,7 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
         <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
-        <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>
+        <div className={classes.toolbarLogo}><Link to="/"><img className={classes.reactLogo} src={reactLogo} alt="reactLogo"/></Link></div>
         <div className={classes.space} />
         <div className={classes.toolbarNavigaionItems}>
           <ul>

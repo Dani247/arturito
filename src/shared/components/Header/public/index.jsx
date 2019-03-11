@@ -4,6 +4,7 @@ import { Link } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './styesHeader'
+import reactLogo from '../../../media/reactLogo.png'
 // Components
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 
@@ -14,7 +15,7 @@ const Header = ({ classes, drawerToggleClickHandler }) => {
         <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
-        <div className={classes.toolbarLogo}><Link to="/">THE LOGO</Link></div>
+        <div className={classes.toolbarLogo}><Link to="/"><img className={classes.reactLogo} src={reactLogo} alt="reactLogo"/></Link></div>
         <div className={classes.space}></div>
         <div className={classes.toolbarNavigaionItems}>
           <ul>
