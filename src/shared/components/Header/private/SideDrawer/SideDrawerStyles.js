@@ -1,5 +1,3 @@
-import { NONAME } from "dns";
-
 const styles = ({
   sideDrawer: {
     height: '100%',

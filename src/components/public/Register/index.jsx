@@ -8,6 +8,8 @@ import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
 import useInput from '../../../shared/hooks/useInput'
+// * helpers
+import useName from '../../../helpers/useName'
 
 // * redux
 import { connect } from 'react-redux'
@@ -33,9 +35,9 @@ const Register = ({ classes, login, state }) => {
 
     // * set body
     const body = JSON.stringify({
-      name: name.props.value.trim(),
-      lastName: lastName.props.value.trim(),
-      email: email.props.value.trim(),
+      name: useName(name.props.value),
+      lastName: useName(lastName.props.value),
+      email: email.props.value.trim().toLowerCase(),
       password: password.props.value,
       phone: phone.props.value.trim()
     })
@@ -86,7 +88,7 @@ const Register = ({ classes, login, state }) => {
       <form onSubmit={onSubmit}>
         <input disabled={isLoading} {...name.props} type='text' required placeholder='Name' />
         <input disabled={isLoading} {...lastName.props} type='text' required placeholder='Last Name' />
-        <input disabled={isLoading} {...email.props} type='text' required placeholder='example@example.com' />
+        <input disabled={isLoading} {...email.props} type='email' required placeholder='example@example.com' />
         <input disabled={isLoading} {...password.props} type='password' required placeholder='*************' />
         <input disabled={isLoading} {...phone.props} type='text' required placeholder='(555-555-5555)' />
         <button>Register</button>
