@@ -19,6 +19,11 @@ const SideDrawer = ({classes, show}) => {
   return(
     <nav className={drawerClasses}>
       <ul>
+        <li><Link to='/'>Accounting</Link></li>
+        <li><Link to='/'>Goals</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Home</Link></li>
       </ul>
     </nav>

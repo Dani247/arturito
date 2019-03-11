@@ -3,7 +3,9 @@ import React from 'react'
 import { Router } from "@reach/router";
 import Error404 from '../../shared/components/Error404'
 import Header from '../../shared/components/Header/public'
-
+// ? Compoents
+import SideDrawer from '../../shared/components/Header/private/SideDrawer/SideDrawer'
+import Backdrop from '../../shared/components/Backdrop/Backdrop'
 // Lazy components
 const Login = React.lazy(() => import("./Login"));
 const Register = React.lazy(() => import('./Register'))

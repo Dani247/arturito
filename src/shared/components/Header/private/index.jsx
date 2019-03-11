@@ -35,10 +35,10 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
           <ul>
             <li> <Link to='/'>Accounting</Link> </li>
             <li> <Link to='/goals'>Goals</Link> </li>
-            {/* <li> <Link to='/pending'>Pending</Link> </li>
+            <li> <Link to='/pending'>Pending</Link> </li>
             <li> <Link to='/profile'>Profile</Link> </li>
             <li> <Link to='/programing'>Programing</Link> </li>
-            <li> <Link to='/reports'>Reports</Link> </li> */}
+            <li> <Link to='/reports'>Reports</Link> </li>
             <li>  <button onClick={onLogOut}>Sign Out</button> </li>
           </ul>
         </div>
