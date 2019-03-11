@@ -2,6 +2,8 @@ const styles = ({
   appContainer: {
     height: '100%',
     width: '100%',
+    minHeight: '600px',
+    minWidth: '300px',
     display: 'grid',
     gridTemplateAreas: `'main'`,
     gridAutoRows: '100%',
