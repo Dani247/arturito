@@ -5,13 +5,29 @@ import { Link } from '@reach/router'
 import injectSheet from 'react-jss'
 import styles from './SideDrawerStyles'
 import classNames from 'classnames'
+import swal from 'sweetalert'
 
-const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler }) => {
+// * redux
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { userFailed } from '../../../../redux/actions/authActions'
+
+const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler, logOut }) => {
   let drawerClasses = classes.sideDrawer
   let combineClasses = classNames(
     classes.sideDrawer,
     classes.sideDrawerOpen
   )
+
+  const onLogOut = () => {
+    swal({
+      title: 'Are you sure?',
+      text: 'Leaving so soon?',
+      icon: 'info',
+      buttons: ['Stay', 'Sign Out']
+    })
+      .then(res => res && logOut())
+  }
 
   const listOnClickHandler = e => {
     if (e.target.href) {
@@ -28,15 +44,23 @@ const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHand
     <nav className={drawerClasses}>
       <ul onClick={listOnClickHandler}>
         <li><Link to='/'>Accounting</Link></li>
-        <li><Link to='/'>Goals</Link></li>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/goals'>Goals</Link></li>
+        <li><Link to='/peding'>Peding</Link></li>
+        <li><Link to='/profile'>Profile</Link></li>
+        <li><Link to='/programing'>Programing</Link></li>
+        <li><Link to='/reports'>Repots</Link></li>
+        <li><button onClick={onLogOut}>Sign Out</button></li>
       </ul>
     </nav>
   )
 }
 
-const sideDrawerWithStyles = injectSheet(styles)(SideDrawer)
-export default sideDrawerWithStyles
+const mapStateToProps = state => ({
+  state
+})
+
+const mapDispatchToProps = dispatch => ({
+  logOut: () => dispatch(userFailed())
+})
+
+export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(SideDrawer)
