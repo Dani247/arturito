@@ -1,7 +1,13 @@
 export default theme => ({
   accountingContainer: {
     width: '100%',
-    height: '100%',
-    padding: '1em'
+    minHeight: '100%',
+    display: 'grid',
+    backgroundImage: theme.colorsCombined.gradientBackground.backgroundColor,
+    color: theme.colorsCombined.gradientBackground.color
+  },
+  sectionAccounting: {
+    display: 'flex',
+    flexFlow: 'column wrap'
   }
 })

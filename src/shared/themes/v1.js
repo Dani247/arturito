@@ -1,12 +1,13 @@
 export default {
-  colors: {
+  colorsCombined: {
     P: {
+      // Header,
       backgroundColor: '#494E6B',
       color: '#000'
     },
     S: {
       backgroundColor: '#98878F',
-      color: '#000'
+      color: '#fff'
     },
     T:{
       backgroundColor: '#985E6D',
@@ -15,6 +16,24 @@ export default {
     C:{
       backgroundColor: '#192231',
       color: '#fff'
+    },
+    gradientBackground: {
+      backgroundColor: 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(93,222,213,1) 100%, rgba(0,212,255,1) 100%)',
+      color: '#fff'
+    }
+  },
+  color:{
+    P: {
+      color: '#494E6B'
+    },
+    S: {
+      color: '#98878F'
+    },
+    T:{
+      color: '#985E6D'
+    },
+    C:{
+      color: '#192231'
     }
   },
   niceInput: {

@@ -8,7 +8,7 @@ export default theme => ({
     width: 30,
     height: 30,
     position: 'relative',
-    border: '4px solid ' + theme.colors.P.backgroundColor,
+    border: '4px solid ' + theme.colorsCombined.P.backgroundColor,
     top: '50%',
     animation: 'loader 2s infinite ease'
   },
@@ -16,7 +16,7 @@ export default theme => ({
     verticalAlign: 'top',
     display: 'inline-block',
     width: '100%',
-    backgroundColor: theme.colors.P.backgroundColor,
+    backgroundColor: theme.colorsCombined.P.backgroundColor,
     animation: 'loader-inner 2s infinite ease-in'
   },
   '@keyframes loader': {

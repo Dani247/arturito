@@ -1,6 +1,7 @@
 export default {
   colors: {
     P: {
+      // Header
       backgroundColor: '#0F1626',
       color: '#fff'
     },
