@@ -22,7 +22,7 @@ export default (state = initState, action) => {
       return {
         ...state,
         token: null,
-        user: false,
+        user: null,
         isAuth: false
       }
     case AUTH_GET_USER_DATA:
