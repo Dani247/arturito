@@ -36,6 +36,56 @@ const updateUser = (id, body) => {
   return UserModel.findOneAndUpdate({ _id: id }, body)
 }
 
+// * adds incomes
+const addIncome = (id, income) => {
+  return UserModel.updateOne({ _id: id }, { $push: {
+    incomes: income
+  } })
+}
+
+// * removes expense
+const removeIncome = (id, income) => {
+  return UserModel.updateOne({ _id: id }, { $pull: {
+    incomes: income
+  } })
+}
+
+// * updates expense
+const updateIncome = (id, income) => {
+  const { _id, label, value, type } = income
+  return UserModel.updateOne({ _id: id, 'incomes._id': _id }, { $set: {
+    'incomes.$.label': label,
+    'incomes.$.value': value,
+    'incomes.$.type': type
+  }
+  })
+}
+
+// * adds expenses
+const addExpense = (id, expense) => {
+  return UserModel.updateOne({ _id: id }, { $push: {
+    expenses: expense
+  } })
+}
+
+// * removes expense
+const removeExpense = (id, expense) => {
+  return UserModel.updateOne({ _id: id }, { $pull: {
+    expenses: expense
+  } })
+}
+
+// * updates expense
+const updateExpense = (id, expense) => {
+  const { _id, label, value, type } = expense
+  return UserModel.updateOne({ _id: id, 'expenses._id': _id }, { $set: {
+    'expenses.$.label': label,
+    'expenses.$.value': value,
+    'expenses.$.type': type
+  }
+  })
+}
+
 module.exports = {
   getUsers,
   getUserById,
@@ -43,5 +93,11 @@ module.exports = {
   getOneUser,
   addUser,
   removeUser,
-  updateUser
+  updateUser,
+  addIncome,
+  removeIncome,
+  updateIncome,
+  addExpense,
+  removeExpense,
+  updateExpense
 }

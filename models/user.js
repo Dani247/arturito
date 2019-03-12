@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     required: true,
+    lowercase: true,
     type: String
   },
   phone: {
@@ -20,7 +21,44 @@ const userSchema = new mongoose.Schema({
   password: {
     required: true,
     type: String
-  }
+  },
+  firstTime: {
+    required: true,
+    type: Boolean,
+    default: true
+  },
+  incomes: [
+    {
+      label: {
+        type: String,
+        required: true
+      },
+      value: {
+        type: Number,
+        required: true
+      },
+      type: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  expenses: [
+    {
+      label: {
+        type: String,
+        required: true
+      },
+      value: {
+        type: Number,
+        required: true
+      },
+      type: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 })
 
 module.exports = mongoose.model('user', userSchema)
