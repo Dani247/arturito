@@ -16,7 +16,7 @@ export default theme => ({
     verticalAlign: 'top',
     display: 'inline-block',
     width: '100%',
-    backgroundColor: theme.colors.P.backgroundColor,
+    backgroundColor: theme.colorsCombined.P.backgroundColor,
     animation: 'loader-inner 2s infinite ease-in'
   },
   '@keyframes loader': {
