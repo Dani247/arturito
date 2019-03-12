@@ -1,12 +1,39 @@
 export default {
-  colors: {
-    primary: {
-      backgroundColor: '#306998',
-      color: 'black'
+  colorsCombined: {
+    P: {
+      // Header,
+      backgroundColor: '#494E6B',
+      color: '#000'
     },
-    secondary: {
-      backgroundColor: '#4B8BBE',
-      color: 'black'
+    S: {
+      backgroundColor: '#98878F',
+      color: '#fff'
+    },
+    T:{
+      backgroundColor: '#985E6D',
+      color: '#000'
+    },
+    C:{
+      backgroundColor: '#192231',
+      color: '#fff'
+    },
+    gradientBackground: {
+      backgroundColor: 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(93,222,213,1) 100%, rgba(0,212,255,1) 100%)',
+      color: '#fff'
+    }
+  },
+  color:{
+    P: {
+      color: '#494E6B'
+    },
+    S: {
+      color: '#98878F'
+    },
+    T:{
+      color: '#985E6D'
+    },
+    C:{
+      color: '#192231'
     }
   },
   niceInput: {
@@ -21,15 +48,34 @@ export default {
   },
   niceButton: {
     primary: {
-      borderRadius: 5,
-      fontSize: 22,
+      fontWeight: 'lighter',
+      padding: '.5rem',
+      borderRadius: 2,
+      fontSize: '1.2rem',
       textDecoration: 'none',
       margin: '0.5em 10%',
-      color: '#FFE873',
+      color: '#fff',
       position: 'relative',
       width: '80% ',
       display: 'inline-block',
-      backgroundColor: '#306998',
+      backgroundColor: '#192231',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '#4B8BBE'
+      }
+    },
+    S: {
+      fontWeight: 'lighter',
+      padding: '.5rem',
+      borderRadius: 2,
+      fontSize: '1.2rem',
+      textDecoration: 'none',
+      margin: '0.5em 10%',
+      color: '#fff',
+      position: 'relative',
+      width: '80% ',
+      display: 'inline-block',
+      backgroundColor: '#494E6B',
       cursor: 'pointer',
       '&:hover': {
         backgroundColor: '#4B8BBE'

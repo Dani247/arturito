@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
-import styles from './styesHeader'
+import styles from '../styesHeader'
 import reactLogo from '../../../media/reactLogo.png'
 // Components
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
@@ -11,7 +11,7 @@ import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 const Header = ({ classes, drawerToggleClickHandler }) => {
   return (
     <header className={classes.headerContainer}>
-       <nav className={classes.toolbarNavigation}>
+      <nav className={classes.toolbarNavigation}>
         <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>

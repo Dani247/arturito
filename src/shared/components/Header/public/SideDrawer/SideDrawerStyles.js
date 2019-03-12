@@ -1,7 +1,7 @@
-const styles = ({
+const styles = theme => ({
   sideDrawer: {
     height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: theme.colorsCombined.C.backgroundColor,
     boxShadow: '1px 0px 7px rgba(0,0,0,0.5)',
     position: 'fixed',
     top: '0',
@@ -18,7 +18,7 @@ const styles = ({
       justifyContent: 'center'
     },
     '& a': {
-      color: '#521751',
+      color: theme.colorsCombined.C.color,
       textDecoration: 'none',
       fontSize: '1.2rem'
     },

@@ -2,7 +2,7 @@ const styles = theme => ({
   headerContainer: {
     width: '100%',
     position: 'fixed',
-    backgroundColor: theme.colorsCombined.P.backgroundColor,
+    backgroundColor: theme.colorsCombined.C.backgroundColor,
     height: '56px'
     
   },
@@ -13,7 +13,8 @@ const styles = theme => ({
     padding: '0 1rem'
   },
   toolbarLogo:{
-    marginLeft: '1rem',
+    position: 'absolute',
+    right: '10px',
     '& a': {
       color: 'white',
       textDecoration: 'none',
@@ -45,7 +46,8 @@ const styles = theme => ({
     flex: '1'
   },
   reactLogo:{
-    maxWidth: '50px'
+    maxWidth: '50px',
+    
   },
   '@media (max-width: 768px)': {
     toolbarNavigaionItems:{

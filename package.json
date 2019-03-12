@@ -5,9 +5,11 @@
   "dependencies": {
     "@iconify/react": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "chart.js": "^2.7.3",
     "classnames": "^2.2.6",
     "react": "^16.8.4",
     "react-avatar": "^3.6.0",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
     "react-kawaii": "^0.11.0",
