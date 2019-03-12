@@ -6,6 +6,7 @@ export default theme => ({
   },
   sectionAccounting: {
     display: 'flex',
-    flexFlow: 'column wrap'
+    flexFlow: 'column wrap',
+    padding: '.5em',
   }
 })

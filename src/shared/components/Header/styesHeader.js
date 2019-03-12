@@ -14,7 +14,7 @@ const styles = theme => ({
   },
   toolbarLogo:{
     position: 'absolute',
-    right: '0',
+    right: '10px',
     '& a': {
       color: 'white',
       textDecoration: 'none',
