@@ -3,6 +3,7 @@ import React from 'react'
 // * styles
 import InjectSheet from 'react-jss'
 import styles from './stylesAccounting'
+import ProgressBar from '../../../shared/components/ProgressBar/'
 
 // * redux
 
@@ -13,7 +14,7 @@ const Accounting = ({ classes }) => (
   <div className={classes.accountingContainer}>
     <section className={classes.sectionAccounting}>
       <h3>Saldo total: <small>$26.000 MXN</small></h3>
-      <hr />
+
       <Line data={{
         labels: ['Ene', 'Feb', 'Mar'],
         datasets: [{
@@ -39,6 +40,9 @@ const Accounting = ({ classes }) => (
         },
         steppedLine: true
       }} />
+
+      <h4>Presupuesto [$3002 MXN]</h4>
+      <ProgressBar total={7002} current={5000} />
     </section>
   </div>
 )

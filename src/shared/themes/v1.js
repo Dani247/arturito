@@ -18,7 +18,7 @@ export default {
       color: '#fff'
     },
     gradientBackground: {
-      backgroundColor: 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(93,222,213,1) 100%, rgba(0,212,255,1) 100%)',
+      backgroundColor: 'linear-gradient(90deg, rgba(0,255,149,1) 0%, rgba(9,121,44,1) 90%, rgba(2,0,36,1) 100%, rgba(57,50,184,0.9051995798319328) 100%)',
       color: '#fff'
     }
   },
