@@ -10,7 +10,7 @@ export default theme => ({
       display: 'flex',
       flexFlow: 'column wrap',
       '& > input': theme.niceInput,
-      '& > button': theme.niceButton.primary
+      '& > button': theme.niceButton.S
     }
   },
   errorMsg: theme.errorMsg

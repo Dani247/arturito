@@ -1,12 +1,20 @@
 export default {
   colors: {
-    primary: {
-      backgroundColor: '#306998',
-      color: 'black'
+    P: {
+      backgroundColor: '#494E6B',
+      color: '#000'
     },
-    secondary: {
-      backgroundColor: '#4B8BBE',
-      color: 'black'
+    S: {
+      backgroundColor: '#98878F',
+      color: '#000'
+    },
+    T:{
+      backgroundColor: '#985E6D',
+      color: '#000'
+    },
+    C:{
+      backgroundColor: '#192231',
+      color: '#fff'
     }
   },
   niceInput: {
@@ -21,15 +29,34 @@ export default {
   },
   niceButton: {
     primary: {
-      borderRadius: 5,
-      fontSize: 22,
+      fontWeight: 'lighter',
+      padding: '.5rem',
+      borderRadius: 2,
+      fontSize: '1.2rem',
       textDecoration: 'none',
       margin: '0.5em 10%',
-      color: '#FFE873',
+      color: '#fff',
       position: 'relative',
       width: '80% ',
       display: 'inline-block',
-      backgroundColor: '#306998',
+      backgroundColor: '#192231',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '#4B8BBE'
+      }
+    },
+    S: {
+      fontWeight: 'lighter',
+      padding: '.5rem',
+      borderRadius: 2,
+      fontSize: '1.2rem',
+      textDecoration: 'none',
+      margin: '0.5em 10%',
+      color: '#fff',
+      position: 'relative',
+      width: '80% ',
+      display: 'inline-block',
+      backgroundColor: '#494E6B',
       cursor: 'pointer',
       '&:hover': {
         backgroundColor: '#4B8BBE'

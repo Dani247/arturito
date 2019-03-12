@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, Redirect } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
-import styles from './styesHeader'
+import styles from '../styesHeader'
 import swal from 'sweetalert'
 // Components
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton'
