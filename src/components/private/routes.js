@@ -7,10 +7,9 @@ import Header from '../../shared/components/Header/private'
 import SideDrawer from '../../shared/components/Header/private/SideDrawer/SideDrawer'
 import Backdrop from '../../shared/components/Backdrop/Backdrop'
 
-
 // Lazy Components
 const Accounting = React.lazy(() => import('./Accounting/'))
-
+const Profile = React.lazy(() => import('./Profile/'))
 function PrivateContainer () {
 
   const [ sideDrawerOpen, setSideDrawerOpen  ] = useState(false)
@@ -37,6 +36,7 @@ function PrivateContainer () {
     {backdrop}
     <Router className='routerContainer' primary={false}>
       <Accounting path='/'/>
+      <Profile path='/profile'/>
       <Error404 default />
     </Router>
   </>
