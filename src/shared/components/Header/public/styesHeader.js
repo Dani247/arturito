@@ -2,7 +2,7 @@ const styles = theme => ({
   headerContainer: {
     width: '100%',
     position: 'fixed',
-    backgroundColor: theme.colors.P.backgroundColor,
+    backgroundColor: theme.colorsCombined.P.backgroundColor,
     height: '56px'
     
   },

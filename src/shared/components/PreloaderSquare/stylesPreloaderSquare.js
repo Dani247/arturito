@@ -8,7 +8,7 @@ export default theme => ({
     width: 30,
     height: 30,
     position: 'relative',
-    border: '4px solid ' + theme.colors.P.backgroundColor,
+    border: '4px solid ' + theme.colorsCombined.P.backgroundColor,
     top: '50%',
     animation: 'loader 2s infinite ease'
   },
