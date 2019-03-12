@@ -65,7 +65,7 @@ const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHand
         <li><Link to='/profile'><Icon icon={userIcon} /> Profile</Link></li>
         <li><Link to='/programing'><Icon icon={scheduleIcon} /> Programing</Link></li>
         <li><Link to='/reports'><Icon icon={receiptAlt} /> Repots</Link></li>
-        <li><span onClick={onLogOut}><Icon icon={cancelIcon} /> Sign Out</span></li>
+        <li className={classes.buttonSignOut}><span onClick={onLogOut}><Icon icon={cancelIcon} /> Sign Out</span></li>
       </ul>
     </nav>
   )

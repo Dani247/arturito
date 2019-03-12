@@ -12,7 +12,6 @@ const styles = theme => ({
     transform: 'translateX(-100%)',
     transition: 'transform 0.3s ease-out',
     '& ul': {
-      height: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center'
@@ -23,14 +22,22 @@ const styles = theme => ({
       fontSize: '1.2rem'
     },
     '& li':{
-      margin: '0.5rem 0'
+      margin: '1rem 0'
     },
     '& a:hover, & a:active': {
       color: '#fa923f'
     }
   },
   sideDrawerOpen: {
-    transform: 'translateX(0)'
+    transform: 'translateX(0)',
+    display: 'flex'
+  },
+  buttonSignOut:{
+    position: 'absolute',
+    bottom: '5px',
+    color: '#1c1c1c',
+    backgroundColor: 'white',
+    padding: '10px 18px'
   },
   '@media (min-width: 760px)': {
     sideDrawer: {
