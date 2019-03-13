@@ -5,6 +5,7 @@ const getTotal = arr => {
   let total = 0
   arr.map((item) => {
     total += item.value
+    return null
   })
 
   return total

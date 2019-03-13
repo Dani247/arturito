@@ -12,5 +12,13 @@ export default theme => ({
   },
   infoContainer: {
     display: 'flex'
+  },
+  infoSection: {
+    width: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > p': {
+      margin: '0'
+    }
   }
 })

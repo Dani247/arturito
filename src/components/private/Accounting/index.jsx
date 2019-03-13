@@ -44,14 +44,16 @@ const Accounting = ({ classes }) => (
       <h4>Presupuesto [$7002 MXN]</h4> 
       <ProgressBar total={7002} current={5000} />
     </section>
-    <section className={classes.infoContainer}>
-      <div>
+    <div className={classes.infoContainer}>
+      <section className={classes.infoSection}>
+        <p>Total: </p>
         <Link to='/incomes'>Incomes</Link>
-      </div>
-      <div>
+      </section>
+      <section className={classes.infoSection}>
+        <p>Total: </p>
         <Link to='/expenses'>Expenses</Link>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 )
 
