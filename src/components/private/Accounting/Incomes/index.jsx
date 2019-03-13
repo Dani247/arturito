@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { navigate } from '@reach/router'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './incomesStyles'
@@ -94,7 +95,7 @@ const Incomes = ({ classes, state, getUserData }) => {
 
   return (
     <div>
-      <Icon icon={arrowCircleLeft} width='30px' height='30px' /> Tus ingresos
+      <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='30px' height='30px' /> Tus ingresos
       {state.user.incomes.length > 0 ? state.user.incomes.map((income, index) => {
         return <Card key={income._id} expense={income.label} total={income.value} type={income.type} />
       }) : <p>No data</p>}
