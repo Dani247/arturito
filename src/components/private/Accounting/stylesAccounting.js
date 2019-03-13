@@ -10,7 +10,6 @@ export default theme => ({
   sectionAccounting: {
     display: 'flex',
     flexFlow: 'column wrap',
-    padding: '.5em',
   },
   infoContainer: {
     display: 'flex',
@@ -38,11 +37,20 @@ export default theme => ({
     gridRow: '1/3',
     gridColumn: '1/2',
     display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
+    flexFlow: 'column wrap',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   infoButton: {
     gridRow: '1/3',
     gridColumn: '2/3'
+  },
+  barContainer: { 
+    width: '100%',
+    padding: '1.5em'
+  },
+  graphContainer: {
+    width: '100%',
+    textAlign: 'center'
   }
 })
