@@ -9,11 +9,25 @@ const auth = require('../../middleware/auth')
 
 // * users controller
 const Users = require('../../controllers/users')
+const {
+  getUsers,
+  getUserById,
+  getUserByEmail,
+  addUser,
+  removeUser,
+  updateUser,
+  addIncome,
+  removeIncome,
+  updateIncome,
+  addExpense,
+  removeExpense,
+  updateExpense
+} = Users
 
 // * PRIVATE gets all users
 router.get('/', auth, async (req, res) => {
   try {
-    const result = await Users.getUsers()
+    const result = await getUsers()
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -28,7 +42,7 @@ router.get('/:id', auth, async (req, res) => {
   if (!id) return res.status(400).json({ msg: 'Missing ID', code: 400 })
 
   try {
-    const result = await Users.getUserById(id)
+    const result = await getUserById(id)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -44,7 +58,7 @@ router.post('/', async (req, res) => {
   if (!name || !lastName || !password || !email || !phone) return res.status(400).json({ msg: 'Field missing', code: 400 })
 
   // ? check if email already there
-  const isUser = await Users.getUserByEmail(newUser.email)
+  const isUser = await getUserByEmail(newUser.email)
 
   if (!isUser) {
     // * create salt and hash
@@ -58,19 +72,23 @@ router.post('/', async (req, res) => {
         newUser.password = hash
 
         // * add user
-        const result = await Users.addUser(newUser)
+        try {
+          const result = await addUser(newUser)
 
-        // * sign a one hour token with the user id
-        jwt.sign(
-          { _id: result._id },
-          vars.jwtSecret,
-          { expiresIn: 3600 },
-          (err, token) => {
-            if (err) res.status(500).json({ msg: err, code: 500 })
+          // * sign a one hour token with the user id
+          jwt.sign(
+            { _id: result._id },
+            vars.jwtSecret,
+            { expiresIn: 3600 },
+            (err, token) => {
+              if (err) res.status(500).json({ msg: err, code: 500 })
 
-            res.status(200).json({ token, user: result })
-          }
-        )
+              res.status(200).json({ token, user: result })
+            }
+          )
+        } catch (error) {
+          res.status(500).json({ msg: 'Internal server error', error })
+        }
       })
     })
   } else {
@@ -86,7 +104,7 @@ router.delete('/:id', auth, async (req, res) => {
   if (!id) return res.status(400).json({ msg: 'Missing ID', code: 400 })
 
   try {
-    const result = await Users.removeUser(id)
+    const result = await removeUser(id)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -101,7 +119,7 @@ router.put('/:id', auth, async (req, res) => {
   if (!id) return res.status(400).json({ msg: 'Missing ID', code: 400 })
 
   try {
-    const result = await Users.updateUser(id, req.body)
+    const result = await updateUser(id, req.body)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -117,7 +135,7 @@ router.post('/income/:id', auth, async (req, res) => {
   if (!income || !income.label || !income.value || !income.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.addIncome(id, income)
+    const result = await addIncome(id, income)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -133,7 +151,7 @@ router.delete('/income/:id', auth, async (req, res) => {
   if (!income || !income.label || !income.value || !income.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.removeIncome(id, income)
+    const result = await removeIncome(id, income)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -149,7 +167,7 @@ router.put('/income/:id', auth, async (req, res) => {
   if (!income || !income.label || !income.value || !income.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.updateIncome(id, income)
+    const result = await updateIncome(id, income)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -165,7 +183,7 @@ router.post('/expense/:id', auth, async (req, res) => {
   if (!expense || !expense.label || !expense.value || !expense.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.addExpense(id, expense)
+    const result = await addExpense(id, expense)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -181,7 +199,7 @@ router.delete('/expense/:id', auth, async (req, res) => {
   if (!expense || !expense.label || !expense.value || !expense.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.removeExpense(id, expense)
+    const result = await removeExpense(id, expense)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
@@ -197,7 +215,7 @@ router.put('/expense/:id', auth, async (req, res) => {
   if (!expense || !expense.label || !expense.value || !expense.type || !id) return res.status(400).json({ msg: 'A field is missing', code: 400 })
 
   try {
-    const result = await Users.updateExpense(id, expense)
+    const result = await updateExpense(id, expense)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
