@@ -1,4 +1,4 @@
-import React, { useRef} from 'react'
+import React, { useRef } from 'react'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './incomesStyles'
@@ -7,8 +7,14 @@ import useName from '../../../../helpers/useName'
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { getUser } from '../../../../shared/redux/actions/authActions'
 
-const Incomes = ({ classes, state }) => { 
+import Card from '../../../../shared/components/Card'
+import { Icon } from '@iconify/react'
+import arrowCircleLeft from '@iconify/react/jam/arrow-circle-left'
+import plusCircleF from '@iconify/react/jam/plus-circle-f'
+
+const Incomes = ({ classes, state, getUserData }) => { 
   // states
   const labelRef = useRef('')
   const ammountRef = useRef(0)
@@ -39,6 +45,7 @@ const Incomes = ({ classes, state }) => {
       })
         .then(res => {
           if (res.status === 200) {
+            getUserData(state.token)
             swal({
               icon: 'success',
               title: 'Added succesfully'
@@ -85,9 +92,14 @@ const Incomes = ({ classes, state }) => {
     })
   }
 
-  return(
-    <div>  
-      <button onClick={addIncome}>Agregar ingresos</button>
+  return (
+    <div>
+      <Icon icon={arrowCircleLeft} width='30px' height='30px' /> Tus ingresos
+      {state.user.incomes.length > 0 ? state.user.incomes.map((income, index) => {
+        return <Card key={income._id} expense={income.label} total={income.value} type={income.type} />
+      }) : <p>No data</p>}
+
+      <Icon onClick={addIncome} icon={plusCircleF} color='green' width='70px' height='70px' />
     </div>
   )
 }
@@ -97,7 +109,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-
+  getUserData: async token => dispatch(await getUser(token))
 })
 
 export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Incomes)
