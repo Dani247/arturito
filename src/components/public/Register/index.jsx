@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // Styles
 import injectSheet from 'react-jss'
 import styles from './stylesRegister'
-import { Link, Redirect } from '@reach/router'
+import { Link, navigate } from '@reach/router'
 import { Ghost } from 'react-kawaii'
 import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
@@ -66,7 +66,10 @@ const Register = ({ classes, login, state }) => {
           title: 'Registered successfully!',
           icon: 'success'
         })
-          .then(() => login(data))
+          .then(() => {
+            login(data)
+            navigate(`/`)
+          })
       } else {
         // * nope
         password.clear()
@@ -82,7 +85,7 @@ const Register = ({ classes, login, state }) => {
   }
 
   return (
-    state.isAuth ? <Redirect noThrow to='/home' /> : <div className={classes.formContainer}>
+    <div className={classes.formContainer}>
       <Ghost size={50} mood='shocked' color='#E0E4E8' />
       <h1>Sign Up</h1>
       <form onSubmit={onSubmit}>

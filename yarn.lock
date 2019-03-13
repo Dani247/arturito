@@ -1096,6 +1096,18 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@sweetalert/transformer@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@sweetalert/transformer/-/transformer-0.1.1.tgz#638bdd20b862f03579fd906578dc9355db00887a"
+  integrity sha512-QdV8CrelIoK95kWOrZNMKXL9oEQFsvaForZcw2UijhmVJX/wzopPRLT/sAg51436TJ4q5angt8BvHQInehGFHA==
+
+"@sweetalert/with-react@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@sweetalert/with-react/-/with-react-0.1.1.tgz#5fe4ca967ae8fb34868ef0b9e52013b783e665d5"
+  integrity sha512-LC9eMYKsv8ydvhvKufdVPOIMDgbAFsxn7eeKWadwvXPsFcflosfm/cXZSO0Ras5TuaO3WxHEgvitKD6UfpeIwQ==
+  dependencies:
+    "@sweetalert/transformer" "^0.1.1"
+
 "@types/node@*":
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.5.tgz#fbaca34086bdc118011e1f05c47688d432f2d571"
@@ -9677,6 +9689,11 @@ svgo@^1.1.1:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-8.3.0.tgz#ebbcd3438a1249c8f75615955273f5a22675cf6c"
+  integrity sha512-HpZVbAxAyh03N5uzNs2e4gpVaaPyZYtBctyAZP8jUrF8Es9e3uvWFsO9I0m8DnlY4771dYIIeUDvlkwhdcKacA==
 
 sweetalert@^2.1.2:
   version "2.1.2"

@@ -1,19 +1,24 @@
 import React from 'react'
-
-// * styles
+import { navigate } from '@reach/router'
+// ? styles
 import InjectSheet from 'react-jss'
 import styles from './stylesAccounting'
+import ProgressBar from '../../../shared/components/ProgressBar/'
+import { Icon } from '@iconify/react'
+import chevronCircleRight from '@iconify/react/jam/chevron-circle-right';
 
-// * redux
+// ? redux
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
-// * charts
+// ? charts
 import { Line } from 'react-chartjs-2'
 
-const Accounting = ({ classes }) => (
+const Accounting = ({ classes, state }) => (
   <div className={classes.accountingContainer}>
     <section className={classes.sectionAccounting}>
       <h3>Saldo total: <small>$26.000 MXN</small></h3>
-      <hr />
+
       <Line data={{
         labels: ['Ene', 'Feb', 'Mar'],
         datasets: [{
@@ -39,8 +44,32 @@ const Accounting = ({ classes }) => (
         },
         steppedLine: true
       }} />
+
+      <h4>Presupuesto [$7002 MXN]</h4> 
+      <ProgressBar total={7002} current={5000} />
     </section>
+    <div className={classes.infoContainer}>
+      <section className={classes.infoSection}>
+        <p>Total: </p>
+        <p style={{ color: 'green' }}>${state.user.incomesTotal}</p>
+        <p>Numero de inglesos: 5</p>
+        <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='lightblue' width="30px" height="30px" />
+      </section>
+      <section className={classes.infoSection}>
+        <p>Total: </p>
+        <p style={{ color: 'red' }}>${state.user.expensesTotal}</p>
+        <p>Numero de inglesos: 5</p>
+      </section>
+    </div>
   </div>
 )
 
-export default InjectSheet(styles)(Accounting)
+const mapStateToProps = state => ({
+  state: state.authReducer
+})
+
+const mapDispatchToProp = dispatch => ({
+
+})
+
+export default compose(InjectSheet(styles), connect(mapStateToProps, mapDispatchToProp))(Accounting)
