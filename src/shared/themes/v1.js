@@ -3,7 +3,7 @@ export default {
     P: {
       // Header,
       backgroundColor: '#494E6B',
-      color: '#000'
+      color: '#fff'
     },
     S: {
       backgroundColor: '#98878F',
