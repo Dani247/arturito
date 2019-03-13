@@ -3,7 +3,7 @@ import { AUTH_LOGOUT, AUTH_SUCCESS, AUTH_GET_USER_DATA } from '../types/authType
 // * get total sum
 const getTotal = arr => {
   let total = 0
-  arr.map((item, index) => {
+  arr.map((item) => {
     total += item.value
   })
 
