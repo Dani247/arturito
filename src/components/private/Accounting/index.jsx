@@ -41,7 +41,7 @@ const Accounting = ({ classes }) => (
         steppedLine: true
       }} />
 
-      <h4>Presupuesto [$3002 MXN]</h4>
+      <h4>Presupuesto [$7002 MXN]</h4> 
       <ProgressBar total={7002} current={5000} />
     </section>
   </div>

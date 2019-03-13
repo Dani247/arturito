@@ -5,7 +5,7 @@ const styles = theme => ({
     gridAutoRows: 'min-content',
     gridGap: '2em'
   },
-  sectionContainer:{
+  sectionContainer: {
     display: 'flex',
     flexFlow: 'column wrap',
     alignItems: 'center'
@@ -14,7 +14,7 @@ const styles = theme => ({
     display: 'flex',
     flexFlow: 'column wrap',
     alignItems: 'center',
-    padding: '1em',
+    padding: '1em'
   },
   niceButton: {
     ...theme.colorsCombined.C,
@@ -23,7 +23,7 @@ const styles = theme => ({
     marginTop: '15px',
     cursor: 'pointer'
   },
-  inputContainer:{
+  inputContainer: {
     width: '100%',
     display: 'flex',
     flexFlow: 'column wrap',
@@ -33,7 +33,7 @@ const styles = theme => ({
       border: 'none',
       outline: 'none',
       borderBottom: '1px solid black',
-      padding: '5px 5px 5px 5px',
+      padding: '5px 5px 5px 5px'
     }
   },
   selectContainer: {

@@ -5,6 +5,7 @@
   "dependencies": {
     "@iconify/react": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "@sweetalert/with-react": "^0.1.1",
     "chart.js": "^2.7.3",
     "classnames": "^2.2.6",
     "react": "^16.8.4",
@@ -18,7 +19,8 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
