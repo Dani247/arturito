@@ -3,8 +3,8 @@ const styles = theme => ({
     width: '100%',
     position: 'fixed',
     backgroundColor: theme.colorsCombined.C.backgroundColor,
-    height: '56px'
-    
+    height: '56px',
+    zIndex: 1
   },
   toolbarNavigation:{
     display: 'flex',

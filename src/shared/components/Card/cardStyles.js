@@ -7,23 +7,27 @@ const styles = theme =>({
     alignItems: 'center',
     width: '100%',
     maxHeight: '300px',
-    padding: '5vmin',
+    paddingTop: '2rem',
     transform: 'translateX(0)',
     borderRadius: '12px',
-    '& > *': {
-      margin: '.5em 0'
-    },
-    '&:after': {
-      content: "''",
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      right: '0',
-      bottom: '0',
-      width: '100%',
-      border: '2px solid white',
-      borderRadius: '12px',
-    }
+    marginTop: '0.2em'
+  },
+  iconStyles: {
+    margin: '0 10px'
+  },
+  niceInput: theme.niceInput,
+  titleCard: {
+    fontSize: '1.5rem',
+    margin: '10px 0 5px 0'
+  },
+  iconsCard: {
+    margin: '10px 0',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  infoCard: {
+    marginBottom: '20px',
+    textAlign: 'center'
   }
 })
 
