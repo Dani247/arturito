@@ -1,13 +1,13 @@
 import React from 'react'
-
-// * styles
+// ? styles
 import InjectSheet from 'react-jss'
 import styles from './stylesAccounting'
 import ProgressBar from '../../../shared/components/ProgressBar/'
+// ? routes
+import { Link } from '@reach/router'
+// ? redux
 
-// * redux
-
-// * charts
+// ? charts
 import { Line } from 'react-chartjs-2'
 
 const Accounting = ({ classes }) => (
@@ -43,6 +43,14 @@ const Accounting = ({ classes }) => (
 
       <h4>Presupuesto [$7002 MXN]</h4> 
       <ProgressBar total={7002} current={5000} />
+    </section>
+    <section className={classes.infoContainer}>
+      <div>
+        <Link to='/incomes'>Incomes</Link>
+      </div>
+      <div>
+        <Link to='/expenses'>Expenses</Link>
+      </div>
     </section>
   </div>
 )

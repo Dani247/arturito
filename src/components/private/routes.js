@@ -10,6 +10,8 @@ import Backdrop from '../../shared/components/Backdrop/Backdrop'
 const Accounting = React.lazy(() => import('./Accounting/'))
 const Profile = React.lazy(() => import('./Profile/'))
 const Pending = React.lazy(() => import('./Pending/'))
+const Incomes = React.lazy(() => import('./Accounting/Incomes/'))
+const Expenses = React.lazy(() => import('./Accounting/Expenses/'))
 function PrivateContainer () {
 
   const [ sideDrawerOpen, setSideDrawerOpen  ] = useState(false)
@@ -38,6 +40,8 @@ function PrivateContainer () {
       <Accounting path='/'/>
       <Profile path='/profile'/>
       <Pending path='/pending'/>
+      <Incomes path='/incomes'/>
+      <Expenses path='/expenses'/>
       <Error404 default />
     </Router>
   </>
