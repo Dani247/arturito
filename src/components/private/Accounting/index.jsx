@@ -50,15 +50,22 @@ const Accounting = ({ classes, state }) => (
     </section>
     <div className={classes.infoContainer}>
       <section className={classes.infoSection}>
-        <p>Total: </p>
-        <p style={{ color: 'green' }}>${state.user.incomesTotal}</p>
-        <p>Numero de inglesos: 5</p>
-        <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='lightblue' width="30px" height="30px" />
+        <span className={classes.infoData}>
+          <p>Total: ${state.user.incomesTotal}</p>
+          <p>Numero de inglesos: 5</p>
+        </span>
+        <span className={classes.infoButton}>
+          <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='lightblue' width="50px" height="50px" />
+        </span>
       </section>
       <section className={classes.infoSection}>
-        <p>Total: </p>
-        <p style={{ color: 'red' }}>${state.user.expensesTotal}</p>
-        <p>Numero de inglesos: 5</p>
+        <span className={classes.infoData}>
+          <p>Total: ${state.user.expensesTotal}</p>
+          <p>Numero de inglesos: 5</p>
+        </span>
+        <span className={classes.infoButton}>
+          <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='lightblue' width="50px" height="50px" />
+        </span>
       </section>
     </div>
   </div>
