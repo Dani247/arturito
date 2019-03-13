@@ -3,7 +3,7 @@ export default theme => ({
     width: '100%',
     minHeight: '100%',
     display: 'grid',
-    gridAutoRows: 'min-content'
+    gridAutoRows: 'min-content',
   },
   sectionAccounting: {
     display: 'flex',
@@ -11,14 +11,19 @@ export default theme => ({
     padding: '.5em',
   },
   infoContainer: {
-    display: 'flex'
+    display: 'flex',
+    flexFlow: 'column wrap',
+    marginTop: '1em'
   },
   infoSection: {
     width: '100%',
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > p': {
-      margin: '0'
+    minHeight: '30%',
+    display: 'grid',
+    gridAutoRows: '2em',
+    justifyItems: 'start',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    '& > *': {
+      margin: 'auto'
     }
   }
 })

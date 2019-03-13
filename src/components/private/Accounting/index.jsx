@@ -47,10 +47,14 @@ const Accounting = ({ classes }) => (
     <div className={classes.infoContainer}>
       <section className={classes.infoSection}>
         <p>Total: </p>
+        <p>100$</p>
+        <p>Numero de inglesos: 5</p>
         <Link to='/incomes'>Incomes</Link>
       </section>
       <section className={classes.infoSection}>
         <p>Total: </p>
+        <p>100$</p>
+        <p>Numero de inglesos: 5</p>
         <Link to='/expenses'>Expenses</Link>
       </section>
     </div>
