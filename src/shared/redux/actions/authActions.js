@@ -1,5 +1,15 @@
 import { AUTH_LOGOUT, AUTH_SUCCESS, AUTH_GET_USER_DATA } from '../types/authTypes'
 
+// * get total sum
+const getTotal = arr => {
+  let total = 0
+  arr.map((item, index) => {
+    total += item.value
+  })
+
+  return total
+}
+
 // * get user data
 export const getUser = async token => {
   const result = await window.fetch('https://arturito-api.herokuapp.com/api/v1/auth/user', {
@@ -13,7 +23,7 @@ export const getUser = async token => {
   if (result.status === 200) {
     return {
       type: AUTH_GET_USER_DATA,
-      payload: data
+      payload: { ...data, incomesTotal: getTotal(data.incomes), expensesTotal: getTotal(data.expenses) }
     }
   } else {
     return {
