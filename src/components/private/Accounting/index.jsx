@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { navigate } from '@reach/router'
 import swal from '@sweetalert/with-react'
 // ? styles
