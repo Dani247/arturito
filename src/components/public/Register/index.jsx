@@ -62,14 +62,23 @@ const Register = ({ classes, login, state }) => {
         lastName.clear()
         password.clear()
         phone.clear()
+        const timeout = setTimeout(() => {
+          navigate('/')
+          login({ ...data })
+          swal.stopLoading()
+          swal.close()
+        }, 1500)
         swal({
           title: 'Registered successfully!',
-          icon: 'success'
+          text: ' ',
+          icon: 'success',
+          button: [],
+          closeOnClickOutside: () => {
+            navigate('/')
+            userLogin({ ...data })
+            clearTimeout(timeout)
+          }
         })
-          .then(() => {
-            login(data)
-            navigate(`/`)
-          })
       } else {
         // * nope
         password.clear()

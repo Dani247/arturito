@@ -11,6 +11,11 @@ const getTotal = arr => {
   return total
 }
 
+const getBalance = (incomes, expenses, budget) => {
+  const balance = (getTotal(incomes) - getTotal(expenses)) - budget
+  return balance
+}
+
 // * get user data
 export const getUser = async token => {
   const result = await window.fetch('https://arturito-api.herokuapp.com/api/v1/auth/user', {
@@ -24,7 +29,11 @@ export const getUser = async token => {
   if (result.status === 200) {
     return {
       type: AUTH_GET_USER_DATA,
-      payload: { ...data, incomesTotal: getTotal(data.incomes), expensesTotal: getTotal(data.expenses) }
+      payload: { ...data,
+        incomesTotal: getTotal(data.incomes),
+        expensesTotal: getTotal(data.expenses),
+        balance: getBalance(data.incomes, data.expenses, data.budget)
+      }
     }
   } else {
     return {

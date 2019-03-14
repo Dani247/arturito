@@ -17,6 +17,10 @@ export default {
       backgroundColor: '#192231',
       color: '#fff'
     },
+    F:{
+      backgroundColor: '#6384a1 ',
+      color: '#fff'
+    },
     gradientBackground: {
       backgroundColor: 'linear-gradient(90deg, rgba(0,255,149,1) 0%, rgba(9,121,44,1) 90%, rgba(2,0,36,1) 100%, rgba(57,50,184,0.9051995798319328) 100%)',
       color: '#fff'
@@ -34,6 +38,9 @@ export default {
     },
     C:{
       color: '#192231'
+    },
+    F: {
+      color: '#839db4'
     }
   },
   niceInput: {

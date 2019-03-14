@@ -15,11 +15,11 @@ import { Icon } from '@iconify/react'
 import arrowCircleLeft from '@iconify/react/jam/arrow-circle-left'
 import plusCircleF from '@iconify/react/jam/plus-circle-f'
 
-const Incomes = ({ classes, state, getUserData }) => { 
+const Incomes = ({ classes, state, getUserData }) => {
   // states
   const labelRef = useRef('')
   const ammountRef = useRef(0)
-  const selectRef = useRef('')
+  // const selectRef = useRef('')
 
   const addIncome = e => {
     // * on submit event
@@ -28,7 +28,7 @@ const Incomes = ({ classes, state, getUserData }) => {
       const body = JSON.stringify({
         label: useName(labelRef.current.value),
         value: ammountRef.current.value,
-        type: selectRef.current.value
+        type: '0'
       })
 
       swal({
@@ -74,13 +74,6 @@ const Incomes = ({ classes, state, getUserData }) => {
           <span className={classes.inputContainer}>
             <p>Cantidad Total</p>
             <input required ref={ammountRef} className={classes.niceInputProfile} type='number' placeholder='Cantidad Total:' />
-          </span>
-          <span className={classes.selectContainer}>
-            <select ref={selectRef}>
-              <option value='biweek'>Quincenal</option>
-              <option value='month'>Mensual</option>
-              <option value='year'>Anual</option>
-            </select>
           </span>
           <button className={classes.niceButton}>Agregar</button>
         </div>
@@ -144,13 +137,17 @@ const Incomes = ({ classes, state, getUserData }) => {
   }
 
   return (
-    <div>
-      <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='30px' height='30px' /> Tus ingresos
+    <div className={classes.incomesContainer}>
+      <div className={classes.iconReturnButtom}>
+        <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='40px' height='40px' />
+      </div>
+      <p className={classes.titleIncomes}>Tus ingresos:</p>
       {state.user.incomes.length > 0 ? state.user.incomes.map((income, index) => {
         return <Card key={income._id} editHandler={editIncome} deleteHandler={deleteIncome} data={income} />
-      }) : <p>No data</p>}
-
-      <Icon onClick={addIncome} icon={plusCircleF} color='green' width='70px' height='70px' />
+      }) : <p className={classes.nodataTitle}>No data</p>}
+      <div className={classes.buttonAdd}>
+        <Icon onClick={addIncome} icon={plusCircleF} color='#3fad4a' width='70px' height='70px' />
+      </div>
     </div>
   )
 }
