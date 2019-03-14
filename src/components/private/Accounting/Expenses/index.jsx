@@ -28,7 +28,7 @@ const Expenses = ({ classes, state, getUserData }) => {
       const body = JSON.stringify({
         label: useName(labelRef.current.value),
         value: ammountRef.current.value,
-        type: selectRef.current.value
+        type: '0'
       })
 
       swal({
@@ -74,13 +74,6 @@ const Expenses = ({ classes, state, getUserData }) => {
           <span className={classes.inputContainer}>
             <p>Cantidad Total</p>
             <input required ref={ammountRef} className={classes.niceInputProfile} type='number' placeholder='Cantidad Total:' />
-          </span>
-          <span className={classes.selectContainer}>
-            <select ref={selectRef}>
-              <option value='biweek'>Quincenal</option>
-              <option value='month'>Mensual</option>
-              <option value='year'>Anual</option>
-            </select>
           </span>
           <button className={classes.niceButton}>Agregar</button>
         </div>
@@ -144,13 +137,17 @@ const Expenses = ({ classes, state, getUserData }) => {
   }
 
   return (
-    <div>
-      <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='30px' height='30px' /> Tus gastos
+    <div className={classes.incomesContainer}>
+      <div className={classes.iconReturnButtom}>
+        <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='40px' height='40px' />
+      </div>
+      <p className={classes.titleIncomes}>Tus ingresos:</p>
       {state.user.expenses.length > 0 ? state.user.expenses.map((expense, index) => {
         return <Card key={expense._id} mood='sad' data={expense} editHandler={editExpense} deleteHandler={deleteExpense} />
-      }) : <p>No data</p>}
-
-      <Icon onClick={addExpense} icon={plusCircleF} color='green' width='70px' height='70px' />
+      }) : <p className={classes.nodataTitle}>No data</p>}
+      <div className={classes.buttonAdd}>
+        <Icon onClick={addExpense} icon={plusCircleF} color='green' width='70px' height='70px' />
+      </div>
     </div>
   )
 }

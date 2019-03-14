@@ -9,13 +9,28 @@ export default theme => ({
   },
   sectionAccounting: {
     display: 'flex',
-    flexFlow: 'column wrap',
+    flexFlow: 'column wrap'
   },
   infoContainer: {
     display: 'flex',
     flexFlow: 'column wrap',
-    alignItems: 'center',
-    marginTop: '1em'
+    alignItems: 'center'
+  },
+  budgetSection: {
+    border: '1px solid black',
+    borderRadius: '10px',
+    width: '90%',
+    minHeight: '30%',
+    display: 'grid',
+    gridTemplateColumns: '2fr 1fr',
+    gridTemplateRows: 'repeat(3, min-content)',
+    gridAutoRows: '2em',
+    justifyItems: 'start',
+    padding: '1rem',
+    marginBottom: '10px',
+    '& > *': {
+      margin: 'auto'
+    }
   },
   infoSection: {
     border: '1px solid black',
@@ -33,6 +48,11 @@ export default theme => ({
       margin: 'auto'
     }
   },
+  infoBudgetBar: {
+    gridRow: '3/4',
+    gridColumn: '1/3',
+    width: '100%'
+  },
   infoData: {
     gridRow: '1/3',
     gridColumn: '1/2',
@@ -45,13 +65,16 @@ export default theme => ({
     gridRow: '1/3',
     gridColumn: '2/3'
   },
-  barContainer: { 
-    width: '100%',
-    padding: '1.5em'
-  },
   graphContainer: {
     width: '100%',
     textAlign: 'center'
   },
-  niceInput: theme.niceInput
+  niceInput: theme.niceInput,
+  niceButton: {
+    ...theme.colorsCombined.C,
+    width: '50vw',
+    padding: '2vmin',
+    marginTop: '15px',
+    cursor: 'pointer'
+  }
 })

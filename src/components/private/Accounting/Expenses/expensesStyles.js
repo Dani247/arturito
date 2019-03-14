@@ -1,14 +1,38 @@
 const styles = theme => ({
-  profileContainer: {
-    height: '100%',
-    display: 'grid',
-    gridAutoRows: 'min-content',
-    gridGap: '2em'
+  incomesContainer: { 
+    width: '100%',
+    padding: '1em'
   },
-  sectionContainer: {
-    display: 'flex',
-    flexFlow: 'column wrap',
-    alignItems: 'center'
+  buttonAdd: {
+    position: 'fixed',
+    bottom: '0',
+    right: '10px',
+    transform: 'tranlateX(0)',
+    '&:before': {
+      content: "''",
+      background: 'white',
+      position: 'absolute',
+      width: '70px',
+      height: '70px',
+      borderRadius: '50%'
+    }
+  },
+  iconReturnButtom: {
+    position: 'fixed',
+    height: '0',
+    zIndex: '100',
+    '&:before': {
+      content: "''",
+      background: 'white',
+      position: 'absolute',
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%'
+    }
+  },
+  titleIncomes: {
+    textAlign: 'center',
+    marginBottom: '10px'
   },
   dataContainer: {
     display: 'flex',
