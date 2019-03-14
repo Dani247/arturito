@@ -10,20 +10,24 @@ const styles = theme =>({
     paddingTop: '2rem',
     transform: 'translateX(0)',
     borderRadius: '12px',
-    marginTop: '0.2em',
+    marginTop: '0.2em'
   },
   iconStyles: {
     margin: '0 10px'
   },
+  niceInput: theme.niceInput,
   titleCard: {
     fontSize: '1.5rem',
     margin: '10px 0 5px 0'
   },
-  iconsCard:{
+  iconsCard: {
     margin: '10px 0',
+    display: 'flex',
+    justifyContent: 'center'
   },
   infoCard: {
-    marginBottom: '10px'
+    marginBottom: '20px',
+    textAlign: 'center'
   }
 })
 
