@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { navigate } from '@reach/router'
 import swal from '@sweetalert/with-react'
 // ? styles
@@ -75,7 +75,7 @@ const Accounting = ({ classes, state, getUserData }) => {
   return (<div className={classes.accountingContainer}>
     <section className={classes.sectionAccounting}>
       <div className={classes.graphContainer}>
-        <h3>Saldo total: <small>${state.user.balance} MXN</small></h3>
+        <h1>Saldo total: <small>${state.user.balance} MXN</small></h1>
         <Line data={{
           labels: ['Ene', 'Feb', 'Mar'],
           datasets: [{
@@ -107,14 +107,12 @@ const Accounting = ({ classes, state, getUserData }) => {
     <div className={classes.infoContainer}>
       <section className={classes.budgetSection}>
         <span className={classes.infoData}>
-          <p>Presupuesto</p>
+          <h2>Presupuesto</h2>
           <p>[${state.user.budget} MXN]</p>
         </span>
-        <span className={classes.infoButton}>
+        <span className={classes.infoBudgetBarContainer}>
+            <ProgressBar total={state.user.budget} current={state.user.balance} />
           <Icon onClick={editBudget} icon={settingsIcon} color='lightblue' width="40px" height="40px" />
-        </span>
-        <span className={classes.infoBudgetBar}>
-          <ProgressBar total={state.user.budget} current={state.user.balance} />
         </span>
       </section>
 

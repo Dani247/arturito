@@ -10,7 +10,7 @@ const styles = theme =>({
     paddingTop: '2rem',
     transform: 'translateX(0)',
     borderRadius: '12px',
-    marginTop: '0.2em'
+    marginTop: '0.8em'
   },
   iconStyles: {
     margin: '0 10px'
