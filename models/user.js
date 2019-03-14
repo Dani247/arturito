@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  budget: {
+    required: true,
+    type: Number,
+    default: 0
+  },
   incomes: [
     {
       label: {

@@ -86,6 +86,13 @@ const updateExpense = (id, expense) => {
   })
 }
 
+// * update budget
+const updateBudget = (id, budget) => {
+  console.log(id)
+  console.log(budget)
+  return UserModel.findOneAndUpdate({ _id: id }, { budget: budget })
+}
+
 module.exports = {
   getUsers,
   getUserById,
@@ -99,5 +106,6 @@ module.exports = {
   updateIncome,
   addExpense,
   removeExpense,
-  updateExpense
+  updateExpense,
+  updateBudget
 }

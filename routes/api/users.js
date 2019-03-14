@@ -21,7 +21,8 @@ const {
   updateIncome,
   addExpense,
   removeExpense,
-  updateExpense
+  updateExpense,
+  updateBudget
 } = Users
 
 // * PRIVATE gets all users
@@ -216,6 +217,21 @@ router.put('/expense/:id', auth, async (req, res) => {
 
   try {
     const result = await updateExpense(id, expense)
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(500).json({ msg: 'Internal server error', error })
+  }
+})
+
+// * PRIVATE updates budget
+router.put('/budget/:id', auth, async (req, res) => {
+  const { id } = req.params
+  const { budget } = req.body
+
+  if (!id || !budget) return res.status(400).json({ msg: 'fields missing', code: 400 })
+
+  try {
+    const result = await updateBudget(id, budget)
     res.status(200).json(result)
   } catch (error) {
     res.status(500).json({ msg: 'Internal server error', error })
