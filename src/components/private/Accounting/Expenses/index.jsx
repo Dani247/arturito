@@ -19,7 +19,7 @@ const Expenses = ({ classes, state, getUserData }) => {
   // states
   const labelRef = useRef('')
   const ammountRef = useRef(0)
-  const selectRef = useRef('')
+  //const selectRef = useRef('')
 
   const addExpense = e => {
     // * on submit event

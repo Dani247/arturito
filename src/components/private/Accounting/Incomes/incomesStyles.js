@@ -32,7 +32,9 @@ const styles = theme => ({
   },
   titleIncomes: {
     textAlign: 'center',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    fontSize: '2rem',
+    fontWeight: 'bolder'
   },
   dataContainer: {
     display: 'flex',

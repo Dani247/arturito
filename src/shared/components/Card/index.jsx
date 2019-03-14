@@ -42,7 +42,7 @@ const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
           <Icon width='30px' color='lightblue' height='30px' icon={pencilCircleOutline} />
         </span>
         <span className={classes.iconStyles}>
-          <Icon onClick={() => deleteHandler(data)} color='red' width='30px' height='30px' icon={trashF} />
+          <Icon onClick={() => deleteHandler(data)} color='#a0071d' width='30px' height='30px' icon={trashF} />
         </span>
       </div>
     </div>}

@@ -7,8 +7,6 @@ import store from '../redux/configureStore'
 // Components
 import App from '../../components/App'
 
-// import Footer from '../components/Footer'
-
 // Styles
 import { ThemeProvider } from 'react-jss'
 import theme from '../themes/v1'
