@@ -144,13 +144,15 @@ const Incomes = ({ classes, state, getUserData }) => {
   }
 
   return (
-    <div>
-      <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='30px' height='30px' /> Tus ingresos
+    <div className={classes.incomesContainer}>
+      <Icon onClick={() => navigate('/')} icon={arrowCircleLeft} width='30px' height='30px' />
+      <p className={classes.titleIncomes}>Tus ingresos:</p>
       {state.user.incomes.length > 0 ? state.user.incomes.map((income, index) => {
         return <Card key={income._id} editHandler={editIncome} deleteHandler={deleteIncome} data={income} />
-      }) : <p>No data</p>}
-
-      <Icon onClick={addIncome} icon={plusCircleF} color='green' width='70px' height='70px' />
+      }) : <p className={classes.nodataTitle}>No data</p>}
+      <div className={classes.buttonAdd}>
+        <Icon onClick={addIncome} icon={plusCircleF} color='green' width='70px' height='70px' />
+      </div>
     </div>
   )
 }

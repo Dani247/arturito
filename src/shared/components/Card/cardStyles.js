@@ -1,6 +1,6 @@
 const styles = theme =>({
   cardContainer: {
-    ...theme.colorsCombined.P,
+    ...theme.colorsCombined.F,
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'space-around',
