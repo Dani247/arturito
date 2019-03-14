@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import styles from './stylesLogin'
 import { Ghost } from 'react-kawaii'
-import { Link, Redirect } from '@reach/router'
+import { Link, navigate } from '@reach/router'
 import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
@@ -49,11 +49,22 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
         window.sessionStorage.setItem('token', data.token)
         email.clear()
         password.clear()
+        const timeout = setTimeout(() => {
+          navigate('/')
+          userLogin({ ...data })
+          swal.stopLoading()
+          swal.close()
+        }, 1500)
         swal({
-          title: 'Logged in successfully!',
-          icon: 'success'
+          text: ' ',
+          icon: 'success',
+          button: [],
+          closeOnClickOutside: () => {
+            navigate('/')
+            userLogin({ ...data })
+            clearTimeout(timeout)
+          }
         })
-          .then(() => userLogin({ ...data }))
       } else {
         // * nope
         setStatusMsg(data.msg)
@@ -69,7 +80,7 @@ const Login = ({ classes, state, userLogin, userFailed }) => {
   }
 
   return (
-    state.isAuth ? <Redirect noThrow to='/home' /> : <div className={classes.formContainer}>
+    <div className={classes.formContainer}>
       <Ghost size={100} mood='blissful' color='#E0E4E8' />
       <h1>Login</h1>
       <form onSubmit={onSubmit}>
