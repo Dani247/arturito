@@ -110,7 +110,7 @@ const Accounting = ({ classes, state, getUserData }) => {
           <p>[${state.user.budget} MXN]</p>
         </span>
         <span className={classes.infoBudgetBarContainer}>
-            <ProgressBar total={state.user.budget} current={state.user.balance} />
+          <ProgressBar total={state.user.budget} current={state.user.budget} />
           <Icon onClick={editBudget} icon={settingsIcon} color='lightblue' width="40px" height="40px" />
         </span>
       </section>
