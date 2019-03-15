@@ -18,7 +18,7 @@ export default {
       color: '#fff'
     },
     F:{
-      backgroundColor: '#056f60',
+      backgroundColor: '#0274a9',
       color: '#fff'
     },
     gradientBackground: {

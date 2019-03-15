@@ -17,8 +17,9 @@ const styles = theme =>({
   },
   niceInput: theme.niceInput,
   titleCard: {
+    textAlign: 'center',
     fontSize: '1.5rem',
-    margin: '10px 0 5px 0'
+    margin: '10px 0 5px 0',
   },
   iconsCard: {
     margin: '10px 0',

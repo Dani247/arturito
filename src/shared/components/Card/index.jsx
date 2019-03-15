@@ -25,7 +25,7 @@ const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
 
   return (<div className={classes.cardContainer}>
     <CreditCard size={50} mood={mood} color='#83D1FB' />
-    {isEditing ? <div>
+    {isEditing ? <div className={classes.textContainer}>
       <form onSubmit={edit}>
         <input className={classes.niceInput} {...label.props} />
         <input className={classes.niceInput} {...value.props} />
