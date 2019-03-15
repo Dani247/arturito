@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import InjectSheet from 'react-jss'
 import styles from './stylesProgressBar'
 
-function ProgressBar ({ classes, total, current }) {
+function ProgressBar ({ classes, total, current, expenses}) {
   const getPercentage = () => {
     if (current > total) {
       return 100
@@ -16,7 +16,7 @@ function ProgressBar ({ classes, total, current }) {
   return (
     <div className={classes.progressContainer}>
       <div className={classes.filler} style={{ width: `${useMemo(() => getPercentage(), [total, current])}%` }} >
-        <p style={{ color: current < 0 ? 'red' : 'black' }} className={classes.ammount}> ${current} MXN</p>
+        <p style={{ color: current < 0 ? 'red' : 'black' }} className={classes.ammount}> ${current - expenses} MXN</p>
       </div>
     </div>
   )

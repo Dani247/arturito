@@ -76,6 +76,7 @@ const Accounting = ({ classes, state, getUserData }) => {
     <section className={classes.sectionAccounting}>
       <div className={classes.graphContainer}>
         <h1>Saldo total: <small>${state.user.incomesTotal} MXN</small></h1>
+        <h4>Total - Presupuesto: <small>${state.user.incomesTotal - state.user.budget} MXN</small></h4>
         <Line data={{
           labels: ['Ene', 'Feb', 'Mar'],
           datasets: [{
@@ -110,7 +111,7 @@ const Accounting = ({ classes, state, getUserData }) => {
           <p>[${state.user.budget} MXN]</p>
         </span>
         <span className={classes.infoBudgetBarContainer}>
-          <ProgressBar total={state.user.budget} current={state.user.budget} />
+          <ProgressBar total={state.user.incomesTotal} current={state.user.budget} expenses={state.user.expensesTotal} />
           <Icon onClick={editBudget} icon={settingsIcon} color='lightblue' width="40px" height="40px" />
         </span>
       </section>
