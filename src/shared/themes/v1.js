@@ -43,6 +43,13 @@ export default {
       color: '#839db4'
     }
   },
+  nicePallete: {
+    primary: '#112F41',
+    secondary: '#0894A1',
+    success: '#47AB6C',
+    warning: '#F2B134',
+    danger: '#ED553B'
+  },
   niceInput: {
     fontSize: 18,
     padding: '10px 10px 10px 5px',
@@ -65,10 +72,10 @@ export default {
       position: 'relative',
       width: '80% ',
       display: 'inline-block',
-      backgroundColor: '#192231',
+      backgroundColor: '#0894A1',
       cursor: 'pointer',
       '&:hover': {
-        backgroundColor: '#4B8BBE'
+        backgroundColor: '#112F41'
       }
     },
     S: {
@@ -82,10 +89,10 @@ export default {
       position: 'relative',
       width: '80% ',
       display: 'inline-block',
-      backgroundColor: '#494E6B',
+      backgroundColor: '#0894A1',
       cursor: 'pointer',
       '&:hover': {
-        backgroundColor: '#4B8BBE'
+        backgroundColor: '#112F41'
       }
     }
   },

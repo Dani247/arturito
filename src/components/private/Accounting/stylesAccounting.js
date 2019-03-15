@@ -67,5 +67,10 @@ export default theme => ({
     padding: '2vmin',
     marginTop: '15px',
     cursor: 'pointer'
-  }
+  },
+  gearStylesIcon: {
+    width: '30px',
+    marginLeft: '5px'
+  },
+  pallete: theme.nicePallete
 })

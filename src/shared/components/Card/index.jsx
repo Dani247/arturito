@@ -24,7 +24,7 @@ const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
   }
 
   return (<div className={classes.cardContainer}>
-    <CreditCard size={50} mood={mood} color='#83D1FB' />
+    <CreditCard size={70} mood={mood} color='#83D1FB' />
     {isEditing ? <div className={classes.textContainer}>
       <form onSubmit={edit}>
         <input className={classes.niceInput} {...label.props} />
@@ -36,13 +36,13 @@ const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
       </form>
     </div> : <div>
       <p className={classes.titleCard}><strong>{data.label}</strong></p>
-      <p className={classes.infoCard}><i>${data.value} [{data.type}]</i></p>
+      <p className={classes.infoCard}><i>${data.value}</i></p>
       <div className={classes.iconsCard}>
         <span onClick={() => setIsEditing(true)} className={classes.iconStyles}>
           <Icon width='30px' color='lightblue' height='30px' icon={pencilCircleOutline} />
         </span>
         <span className={classes.iconStyles}>
-          <Icon onClick={() => deleteHandler(data)} color='#a0071d' width='30px' height='30px' icon={trashF} />
+          <Icon onClick={() => deleteHandler(data)} color='lightblue' width='30px' height='30px' icon={trashF} />
         </span>
       </div>
     </div>}
