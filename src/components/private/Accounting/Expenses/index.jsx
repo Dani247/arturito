@@ -9,7 +9,7 @@ import useName from '../../../../helpers/useName'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { getUser } from '../../../../shared/redux/actions/authActions'
-
+// Components
 import Card from '../../../../shared/components/Card'
 import { Icon } from '@iconify/react'
 import arrowCircleLeft from '@iconify/react/jam/arrow-circle-left'

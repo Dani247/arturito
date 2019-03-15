@@ -1,7 +1,9 @@
 export default theme => ({
   preloaderContainer: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    heightMin: '10px',
+    marginBottom: '20px',
   },
   loader: {
     display: 'inline-block',

@@ -1,16 +1,15 @@
 export default theme => ({
   progressContainer: {
     width: '100%',
-    height: '20px',
-    backgroundColor: '#ccc'
+    height: '25px',
+    backgroundColor: '#b6cad8',
   },
   filler: {
     textAlign: 'center',
     height: '100%',
-    backgroundColor: theme.color.F.color
-  },
-  ammount: {
-    position: 'absolute',
-    margin: 0
+    width: '100%',
+    backgroundColor: '#b6c4d8',
+    display: 'flex',
+    justifyContent: 'center'
   }
 })
