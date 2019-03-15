@@ -11,5 +11,5 @@ export default theme => ({
     backgroundColor: '#b6c4d8',
     display: 'flex',
     justifyContent: 'center'
-  }
+  },
 })
