@@ -7,8 +7,7 @@ import styles from './stylesAccounting'
 import ProgressBar from '../../../shared/components/ProgressBar/'
 import { Icon } from '@iconify/react'
 import chevronCircleRight from '@iconify/react/jam/chevron-circle-right'
-import settingsIcon from '@iconify/react/ic/settings'
-
+import icon from '../../../shared/media/icons/cogwheel.png'
 // ? redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -112,7 +111,7 @@ const Accounting = ({ classes, state, getUserData }) => {
         </span>
         <span className={classes.infoBudgetBarContainer}>
           <ProgressBar total={state.user.incomesTotal} current={state.user.budget} expenses={state.user.expensesTotal} />
-          <Icon onClick={editBudget} icon={settingsIcon} color='lightblue' width="40px" height="40px" />
+          <img className={classes.gearStylesIcon} onClick={editBudget} src={icon} alt="gearkawaii"/>
         </span>
       </section>
 

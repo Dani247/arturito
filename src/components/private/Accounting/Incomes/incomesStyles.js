@@ -13,14 +13,6 @@ const styles = theme => ({
     position: 'fixed',
     height: '0',
     zIndex: '100',
-    '&:before': {
-      content: "''",
-      background: 'white',
-      position: 'absolute',
-      width: '40px',
-      height: '40px',
-      borderRadius: '50%'
-    }
   },
   titleIncomes: {
     textAlign: 'center',
