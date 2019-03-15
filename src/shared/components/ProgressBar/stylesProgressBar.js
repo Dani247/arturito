@@ -7,7 +7,7 @@ export default theme => ({
   filler: {
     textAlign: 'center',
     height: '100%',
-    backgroundColor: theme.color.F.color
+    backgroundColor: '#b6c4d8'
   },
   ammount: {
     position: 'absolute',
