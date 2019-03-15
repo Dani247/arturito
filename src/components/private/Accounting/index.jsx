@@ -99,7 +99,6 @@ const Accounting = ({ classes, state, getUserData }) => {
       <section className={classes.budgetSection}>
         <span className={classes.infoData}>
           <h2>Presupuesto</h2>
-          <p>[${state.user.budget} MXN]</p>
         </span>
         <span className={classes.infoBudgetBarContainer}>
           <ProgressBar total={state.user.incomesTotal} current={state.user.budget} expenses={state.user.expensesTotal} />

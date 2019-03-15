@@ -17,9 +17,8 @@ function ProgressBar ({ classes, total, current, expenses }) {
 
   return (
     <div className={classes.progressContainer}>
-      <div className={classes.filler} style={{ width: `${useMemo(() => getPercentage(), [expenses, current])}%` }} >
-        <p style={{ color: current < 0 ? 'red' : 'black' }} className={classes.ammount}> ${getSubstraction()} MXN</p>
-      </div>
+      <p className={classes.ammount}> <span style={{ color: getSubstraction() < 0 ? 'red' : 'black' }}>${getSubstraction()}</span> &nbsp; / ${current}</p>
+      <div className={classes.filler} style={{ width: `${useMemo(() => getPercentage(), [expenses, current])}%` }} />
     </div>
   )
 }
