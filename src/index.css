@@ -1,0 +1,48 @@
+
+html {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: lato, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+ list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.routerContainer {
+  grid-area: main;
+  width: 100%;
+  height: 100%;
+  padding-top: 56px;
+}
