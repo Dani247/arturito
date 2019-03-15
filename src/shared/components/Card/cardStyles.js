@@ -1,6 +1,6 @@
 const styles = theme =>({
   cardContainer: {
-    ...theme.colorsCombined.F,
+    color: 'white',
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'space-around',
@@ -10,7 +10,8 @@ const styles = theme =>({
     paddingTop: '2rem',
     transform: 'translateX(0)',
     borderRadius: '12px',
-    marginTop: '0.8em'
+    marginTop: '0.8em',
+    backgroundColor: theme.nicePallete.secondary
   },
   iconStyles: {
     margin: '0 10px'

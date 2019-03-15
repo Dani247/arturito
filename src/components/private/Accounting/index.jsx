@@ -14,7 +14,7 @@ import { compose } from 'redux'
 import { getUser } from '../../../shared/redux/actions/authActions'
 
 // ? charts
-import { Line } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 
 const Accounting = ({ classes, state, getUserData }) => {
   const budgetRef = useRef()
@@ -34,40 +34,47 @@ const Accounting = ({ classes, state, getUserData }) => {
     })
 
     const sendBudget = e => {
-      // * put request
-      swal({
-        content: (<div>Sending...</div>),
-        buttons: ['']
-      })
+      if (budgetRef.current.value <= state.user.incomesTotal) {
+        // * put request
+        swal({
+          content: (<div>Sending...</div>),
+          buttons: ['']
+        })
 
-      window.fetch(`https://arturito-api.herokuapp.com/api/v1/users/budget/${state.user._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': state.token
-        },
-        body: JSON.stringify({
-          budget: budgetRef.current.value
+        window.fetch(`https://arturito-api.herokuapp.com/api/v1/users/budget/${state.user._id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': state.token
+          },
+          body: JSON.stringify({
+            budget: budgetRef.current.value
+          })
         })
-      })
-        .then(res => {
-          if (res.status === 200) {
-            getUserData(state.token)
-            swal({
-              title: 'Saved!',
-              icon: 'success'
-            })
-          }
-          return res.json()
+          .then(res => {
+            if (res.status === 200) {
+              getUserData(state.token)
+              swal({
+                title: 'Saved!',
+                icon: 'success'
+              })
+            }
+            return res.json()
+          })
+          .then(data => {
+            if (data.msg) {
+              swal({
+                icon: 'error',
+                title: data.msg
+              })
+            }
+          })
+      } else {
+        swal({
+          icon: 'warning',
+          title: 'you dont have enough money to set that budget'
         })
-        .then(data => {
-          if (data.msg) {
-            swal({
-              icon: 'error',
-              title: data.msg
-            })
-          }
-        })
+      }
     }
   }
 
@@ -76,30 +83,15 @@ const Accounting = ({ classes, state, getUserData }) => {
       <div className={classes.graphContainer}>
         <h1>Saldo total: <small>${state.user.incomesTotal} MXN</small></h1>
         <h4>Total - Presupuesto: <small>${state.user.incomesTotal - state.user.budget} MXN</small></h4>
-        <Line data={{
-          labels: ['Ene', 'Feb', 'Mar'],
+        <Pie data={{
+          labels: ['Ingresos', 'Gastos'],
           datasets: [{
             label: 'Ingresos',
-            data: [1400, 2000, 3000, 1000, 200],
-            backgroundColor: ['green'],
-            borderColor: ['yellow'],
-            borderWidth: 1
-          }, {
-            label: 'Gastos',
-            data: [800, 600, 300, 600, 39],
-            backgroundColor: ['red'],
+            data: [state.user.incomesTotal, state.user.expensesTotal],
+            backgroundColor: ['#47AB6C', '#F2B134'],
             borderColor: ['yellow'],
             borderWidth: 1
           }]
-        }} options={{
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          },
-          steppedLine: true
         }} />
       </div>
     </section>
@@ -121,7 +113,7 @@ const Accounting = ({ classes, state, getUserData }) => {
           <p>Num. de Ingresos: {state.user.incomes.length}</p>
         </span>
         <span className={classes.infoButton}>
-          <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='lightblue' width="50px" height="50px" />
+          <Icon onClick={() => navigate('/incomes')} icon={chevronCircleRight} color='#0894A1' width="50px" height="50px" />
         </span>
       </section>
 
@@ -131,7 +123,7 @@ const Accounting = ({ classes, state, getUserData }) => {
           <p>Num. de Gastos: {state.user.expenses.length}</p>
         </span>
         <span className={classes.infoButton}>
-          <Icon onClick={() => navigate('/expenses')} icon={chevronCircleRight} color='lightblue' width="50px" height="50px" />
+          <Icon onClick={() => navigate('/expenses')} icon={chevronCircleRight} color='#0894A1' width="50px" height="50px" />
         </span>
       </section>
     </div>

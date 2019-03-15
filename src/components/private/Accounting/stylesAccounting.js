@@ -71,5 +71,6 @@ export default theme => ({
   gearStylesIcon: {
     width: '30px',
     marginLeft: '5px'
-  }
+  },
+  pallete: theme.nicePallete
 })

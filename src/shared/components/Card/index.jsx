@@ -36,13 +36,13 @@ const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
       </form>
     </div> : <div>
       <p className={classes.titleCard}><strong>{data.label}</strong></p>
-      <p className={classes.infoCard}><i>${data.value} [{data.type}]</i></p>
+      <p className={classes.infoCard}><i>${data.value}</i></p>
       <div className={classes.iconsCard}>
         <span onClick={() => setIsEditing(true)} className={classes.iconStyles}>
           <Icon width='30px' color='lightblue' height='30px' icon={pencilCircleOutline} />
         </span>
         <span className={classes.iconStyles}>
-          <Icon onClick={() => deleteHandler(data)} color='#a0071d' width='30px' height='30px' icon={trashF} />
+          <Icon onClick={() => deleteHandler(data)} color='lightblue' width='30px' height='30px' icon={trashF} />
         </span>
       </div>
     </div>}

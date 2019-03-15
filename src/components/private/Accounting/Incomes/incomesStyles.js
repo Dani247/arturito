@@ -11,8 +11,9 @@ const styles = theme => ({
   },
   iconReturnButtom: {
     position: 'fixed',
-    height: '0',
     zIndex: '100',
+    top: '10px',
+    backgroundColor: theme.nicePallete.primary
   },
   titleIncomes: {
     textAlign: 'center',
