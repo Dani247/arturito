@@ -7,15 +7,7 @@ const styles = theme => ({
     position: 'fixed',
     bottom: '0',
     right: '10px',
-    transform: 'tranlateX(0)',
-    '&:before': {
-      content: "''",
-      background: 'white',
-      position: 'absolute',
-      width: '70px',
-      height: '70px',
-      borderRadius: '50%'
-    }
+    transform: 'tranlateX(0)'
   },
   iconReturnButtom: {
     position: 'fixed',
