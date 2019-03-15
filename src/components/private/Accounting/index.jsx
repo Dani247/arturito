@@ -75,7 +75,7 @@ const Accounting = ({ classes, state, getUserData }) => {
   return (<div className={classes.accountingContainer}>
     <section className={classes.sectionAccounting}>
       <div className={classes.graphContainer}>
-        <h1>Saldo total: <small>${state.user.balance} MXN</small></h1>
+        <h1>Saldo total: <small>${state.user.incomesTotal} MXN</small></h1>
         <Line data={{
           labels: ['Ene', 'Feb', 'Mar'],
           datasets: [{
@@ -102,7 +102,6 @@ const Accounting = ({ classes, state, getUserData }) => {
           steppedLine: true
         }} />
       </div>
-
     </section>
     <div className={classes.infoContainer}>
       <section className={classes.budgetSection}>
