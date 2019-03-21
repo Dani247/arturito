@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useMemo } from 'react'
 
-export default function makeStore() {
-
+export default function makeStore () {
   // ! Create Context
   const Context = React.createContext()
   // ! Create Provider
@@ -15,8 +14,7 @@ export default function makeStore() {
       console.log('%c new state', 'color: green', update)
     }
 
-    // TODO needs to change a memoized
-    const store = [state, loggerSetState]
+    const store = useMemo(() => [state, loggerSetState], [state])
 
     return <Context.Provider value={store}>{children}</Context.Provider>
   }

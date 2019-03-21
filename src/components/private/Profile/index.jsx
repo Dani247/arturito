@@ -3,11 +3,11 @@ import React from 'react'
 import { Cat } from 'react-kawaii'
 import injectSheet from 'react-jss'
 import styles from './profileStyles'
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
 
-const Profile = ({ classes}) => {
+// * context
+// import { useAuth } from '../../../shared/hooks/context/states/auth'
+
+const Profile = ({ classes }) => {
   return (
     <div className={classes.profileContainer}>
       <section className={classes.sectionContainer}>
@@ -17,12 +17,4 @@ const Profile = ({ classes}) => {
     </div>)
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Profile)
+export default injectSheet(styles)(Profile)

@@ -8,17 +8,18 @@ import ProgressBar from '../../../shared/components/ProgressBar/'
 import { Icon } from '@iconify/react'
 import chevronCircleRight from '@iconify/react/jam/chevron-circle-right'
 import icon from '../../../shared/media/icons/cogwheel.png'
-// ? redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { getUser } from '../../../shared/redux/actions/authActions'
+
+// * context
+import { useAuth, useAuthGetUserData } from '../../../shared/hooks/context/states/auth'
 
 // ? charts
 import { Pie } from 'react-chartjs-2'
 
-const Accounting = ({ classes, state, getUserData }) => {
+const Accounting = ({ classes }) => {
   const budgetRef = useRef()
-  
+  const state = useAuth()
+  const getUserData = useAuthGetUserData()
+
   const editBudget = e => {
     // * input
     swal({
@@ -129,12 +130,4 @@ const Accounting = ({ classes, state, getUserData }) => {
   </div>)
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProp = dispatch => ({
-  getUserData: async token => dispatch(await getUser(token))
-})
-
-export default compose(InjectSheet(styles), connect(mapStateToProps, mapDispatchToProp))(Accounting)
+export default InjectSheet(styles)(Accounting)

@@ -16,12 +16,11 @@ import scheduleIcon from '@iconify/react/uil/schedule'
 import receiptAlt from '@iconify/react/uil/receipt-alt'
 import cancelIcon from '@iconify/react/uil/cancel'
 
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { userFailed } from '../../../../redux/actions/authActions'
+// * context
+import { useAuthLogout } from '../../../../hooks/context/states/auth'
 
-const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler, logOut }) => {
+const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHandler }) => {
+  const logOut = useAuthLogout()
   const [ redirect, setRedirect ] = useState(false)
 
   let drawerClasses = classes.sideDrawer
@@ -71,12 +70,4 @@ const SideDrawer = ({ classes, show, drawerToggleClickHandler, backdropClickHand
   )
 }
 
-const mapStateToProps = state => ({
-  state
-})
-
-const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(userFailed())
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(SideDrawer)
+export default injectSheet(styles)(SideDrawer)

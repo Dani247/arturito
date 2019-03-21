@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
 
-// * redux
-import { connect } from 'react-redux'
-import { getUser } from '../redux/actions/authActions'
+// * context
+import { useAuth, useAuthGetUserData } from '../hooks/context/states/auth'
 
 // * public Routes
 import RoutesPrivateContainer from '../../components/public/routes'
 // * private Routes
 import RoutesPublicContainer from '../../components/private/routes'
 
-const IsLoggedInRouter = ({ state, getUserData }) => {
+const IsLoggedInRouter = () => {
+  const state = useAuth()
+  const getUserData = useAuthGetUserData()
+
   useEffect(() => {
     if (state.token) {
       getUserData(state.token)
@@ -23,12 +25,4 @@ const IsLoggedInRouter = ({ state, getUserData }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  getUserData: async (token) => dispatch(await getUser(token))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(IsLoggedInRouter)
+export default IsLoggedInRouter

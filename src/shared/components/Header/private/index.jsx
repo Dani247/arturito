@@ -18,12 +18,12 @@ import cancelIcon from '@iconify/react/uil/cancel'
 // Components
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton'
 import reactLogo from '../../../media/reactLogo.png'
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { userFailed } from '../../../redux/actions/authActions'
 
-const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
+// * context
+import { useAuthLogout } from '../../../hooks/context/states/auth'
+
+const Header = ({ classes, drawerToggleClickHandler }) => {
+  const logOut = useAuthLogout()
   const [ redirect, setRedirect ] = useState(false)
 
   const onLogOut = () => {
@@ -47,7 +47,7 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
         <div className={classes.toolbarToggleButton}>
           <DrawerToggleButton click={drawerToggleClickHandler} />
         </div>
-        <div className={classes.toolbarLogo}><Link to="/"><img className={classes.reactLogo} src={reactLogo} alt="reactLogo"/></Link></div>
+        <div className={classes.toolbarLogo}><Link to='/'><img className={classes.reactLogo} src={reactLogo} alt='reactLogo' /></Link></div>
         <div className={classes.space} />
         <div className={classes.toolbarNavigaionItems}>
           <ul>
@@ -65,12 +65,4 @@ const Header = ({ classes, logOut, drawerToggleClickHandler }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(userFailed())
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Header)
+export default injectSheet(styles)(Header)

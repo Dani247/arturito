@@ -8,17 +8,11 @@ import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
 import useInput from '../../../shared/hooks/custom/useInput'
+import { useAuthSuccess, useAuthLogout } from '../../../shared/hooks/context/states/auth'
 
-// * redux
-import { compose } from 'redux'
-import { connect } from 'react-redux'
-import { userLogin, userFailed } from '../../../shared/redux/actions/authActions'
-
-// ! Hooks
-import { useAuthSucces, useAuthLogout } from '../../../shared/hooks/context/states/auth'
-
-const Login = ({ classes, state, userFailed }) => {
-  const userLogin = useAuthSucces()
+const Login = ({ classes }) => {
+  const userLogin = useAuthSuccess()
+  const userFailed = useAuthLogout()
   // * form input states
   const email = useInput('')
   const password = useInput('')
@@ -50,11 +44,13 @@ const Login = ({ classes, state, userFailed }) => {
 
       if (res.status === 200) {
         // * registered succesfully
+        console.log('deberia guardar esto', data.token)
         window.sessionStorage.setItem('token', data.token)
         email.clear()
         password.clear()
         const timeout = setTimeout(() => {
           navigate('/')
+          console.log('data', { ...data })
           userLogin({ ...data })
           swal.stopLoading()
           swal.close()
@@ -100,13 +96,4 @@ const Login = ({ classes, state, userFailed }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  userFailed: () => dispatch(userFailed()),
-  userLogin: (payload) => dispatch(userLogin(payload))
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Login)
+export default injectSheet(styles)(Login)

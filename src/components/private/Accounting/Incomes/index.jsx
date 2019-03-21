@@ -5,15 +5,16 @@ import injectSheet from 'react-jss'
 import styles from './incomesStyles'
 import swal from '@sweetalert/with-react'
 import useName from '../../../../helpers/useName'
-// Redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { getUser } from '../../../../shared/redux/actions/authActions'
+
+// * context
+import { useAuth, useAuthGetUserData } from '../../../../shared/hooks/context/states/auth'
+
 // Components
 import Card from '../../../../shared/components/Card'
 
-
-const Incomes = ({ classes, state, getUserData }) => {
+const Incomes = ({ classes }) => {
+  const state = useAuth()
+  const getUserData = useAuthGetUserData()
   // states
   const labelRef = useRef('')
   const ammountRef = useRef(0)
@@ -150,12 +151,4 @@ const Incomes = ({ classes, state, getUserData }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  getUserData: async token => dispatch(await getUser(token))
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Incomes)
+export default injectSheet(styles)(Incomes)

@@ -8,15 +8,12 @@ import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
 import useInput from '../../../shared/hooks/custom/useInput'
+import { useAuthSuccess } from '../../../shared/hooks/context/states/auth'
 // * helpers
 import useName from '../../../helpers/useName'
 
-// * redux
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { userLogin } from '../../../shared/redux/actions/authActions'
-
-const Register = ({ classes, login, state }) => {
+const Register = ({ classes, state }) => {
+  const login = useAuthSuccess()
   // * form input states
   const name = useInput('')
   const lastName = useInput('')
@@ -75,7 +72,7 @@ const Register = ({ classes, login, state }) => {
           button: [],
           closeOnClickOutside: () => {
             navigate('/')
-            userLogin({ ...data })
+            login({ ...data })
             clearTimeout(timeout)
           }
         })
@@ -111,12 +108,4 @@ const Register = ({ classes, login, state }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.authReducer
-})
-
-const mapDispatchToProps = dispatch => ({
-  login: (payload) => dispatch(userLogin(payload))
-})
-
-export default compose(injectSheet(styles), connect(mapStateToProps, mapDispatchToProps))(Register)
+export default injectSheet(styles)(Register)
