@@ -1,23 +1,28 @@
 import React, { Suspense } from 'react'
 
-// ! Redux
-import { Provider } from 'react-redux'
-import store from '../redux/configureStore'
+// ! Redux to Context
+import Store from '../hooks/context/store/'
+import { initialState as auth } from '../hooks/context/states/auth'
 
-// Components
+// ? Components
 import App from '../../components/App'
 
-// Styles
+// ? Styles
 import { ThemeProvider } from 'react-jss'
 import theme from '../themes/v1'
 import Preloader from '../components/Preloader/'
 
-// * check is loggin router
+// ? check is loggin router
 import IsLoggedInRouter from './IsLoggedInRouter'
+
+// * compose states
+const initialState = {
+  auth
+}
 
 const AppRouter = () => {
   return (
-    <Provider store={store({authed: false})}>
+    <Store.Provider initState={initialState}>
       <ThemeProvider theme={theme}>
         <App>
           <Suspense fallback={<Preloader />}>
@@ -25,7 +30,7 @@ const AppRouter = () => {
           </Suspense>
         </App>
       </ThemeProvider>
-    </Provider>
+    </Store.Provider>
   )
 }
 

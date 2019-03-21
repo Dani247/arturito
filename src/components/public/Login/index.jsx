@@ -14,7 +14,11 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { userLogin, userFailed } from '../../../shared/redux/actions/authActions'
 
-const Login = ({ classes, state, userLogin, userFailed }) => {
+// ! Hooks
+import { useAuthSucces, useAuthLogout } from '../../../shared/hooks/context/states/auth'
+
+const Login = ({ classes, state, userFailed }) => {
+  const userLogin = useAuthSucces()
   // * form input states
   const email = useInput('')
   const password = useInput('')
