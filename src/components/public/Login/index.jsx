@@ -7,7 +7,7 @@ import { Link, navigate } from '@reach/router'
 import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
-import useInput from '../../../shared/hooks/useInput'
+import useInput from '../../../shared/hooks/custom/useInput'
 
 // * redux
 import { compose } from 'redux'

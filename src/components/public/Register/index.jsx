@@ -7,7 +7,7 @@ import { Ghost } from 'react-kawaii'
 import swal from 'sweetalert'
 import PreloaderSquare from '../../../shared/components/PreloaderSquare'
 // * Hooks
-import useInput from '../../../shared/hooks/useInput'
+import useInput from '../../../shared/hooks/custom/useInput'
 // * helpers
 import useName from '../../../helpers/useName'
 

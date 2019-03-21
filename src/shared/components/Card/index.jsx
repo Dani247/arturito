@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react'
 import trashF from '@iconify/react/jam/trash-f'
 import pencilCircleOutline from '@iconify/react/mdi/pencil-circle-outline'
 import checkCircle from '@iconify/react/ic/check-circle'
-import useInput from '../../hooks/useInput'
+import useInput from '../../hooks/custom/useInput'
 
 const Card = ({ classes, data, mood, editHandler, deleteHandler }) => {
   const [ isEditing, setIsEditing ] = useState(false)
