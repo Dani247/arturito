@@ -2,7 +2,7 @@ const styles = theme => ({
   headerContainer: {
     width: '100%',
     position: 'fixed',
-    backgroundColor: theme.colorsCombined.C.backgroundColor,
+    backgroundColor: theme.nicePallete.primary,
     height: '56px',
     zIndex: 1
   },
